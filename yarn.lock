@@ -422,9 +422,9 @@
     set-cookie-parser "^2.6.0"
 
 "@sveltejs/kit@^2.16.0":
-  version "2.19.1"
-  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.19.1.tgz#47a15f720f64184b40e7a106970b46dd129f5dc0"
-  integrity sha512-1u8FGWtT+V0eBSQpDtsjINhQd6RTjadvEgVApdNVxbUeOXmQTDENTeRiZw2i1lNUx1/5Wa65CHzxtMh3P3yviw==
+  version "2.19.2"
+  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.19.2.tgz#62a7c206fdcf74920bb4e40e623f6dc4f0e82985"
+  integrity sha512-OkW7MMGkjXtdfqdHWlyPozh/Ct1X3pthXAKTSqHm+mwmvmTBASmPE6FhwlvUgsqlCceRYL+5QUGiIJfOy0xIjQ==
   dependencies:
     "@types/cookie" "^0.6.0"
     cookie "^0.6.0"
@@ -896,7 +896,7 @@ rollup@^4.30.1:
 "rosie-if-story@file:.":
   version "0.0.1"
   dependencies:
-    rosie-if-story "file:../../../../AppData/Local/Yarn/Cache/v6/npm-rosie-if-story-0.0.1-22e70ccc-cd3e-4763-9d34-9738b03e6724-1742012938281/node_modules/rosie-if-story"
+    rosie-if-story "file:./../../../../../AppData/Local/Yarn/Cache/v6/npm-rosie-if-story-0.0.1-4fc3fcfe-09bd-4331-8165-c68d25585193-1742073715676/node_modules/rosie-if-story"
 
 sade@^1.7.4, sade@^1.8.1:
   version "1.8.1"
