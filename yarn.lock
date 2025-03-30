@@ -855,7 +855,7 @@ prettier-plugin-tailwindcss@^0.6.11:
   resolved "https://registry.yarnpkg.com/prettier-plugin-tailwindcss/-/prettier-plugin-tailwindcss-0.6.11.tgz#cfacd60c4f81997353ee913e589037f796df0f5f"
   integrity sha512-YxaYSIvZPAqhrrEpRtonnrXdghZg1irNg4qrjboCXrpybLWVs55cW2N3juhspVJiO0JBvYJT8SYsJpc8OQSnsA==
 
-prettier@^3.4.2:
+prettier@3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.5.3.tgz#4fc2ce0d657e7a02e602549f053b239cb7dfe1b5"
   integrity sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==
@@ -896,7 +896,7 @@ rollup@^4.30.1:
 "rosie-if-story@file:.":
   version "0.0.1"
   dependencies:
-    rosie-if-story "file:./../../../../../AppData/Local/Yarn/Cache/v6/npm-rosie-if-story-0.0.1-4fc3fcfe-09bd-4331-8165-c68d25585193-1742073715676/node_modules/rosie-if-story"
+    rosie-if-story "file:./../AppData/Local/Yarn/Cache/v6/npm-rosie-if-story-0.0.1-77358712-110e-4400-a040-c91c783ee569-1742951625144/node_modules/rosie-if-story"
 
 sade@^1.7.4, sade@^1.8.1:
   version "1.8.1"
