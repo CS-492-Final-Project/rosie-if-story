@@ -63,7 +63,7 @@ tw-link:hover{
  * Released under the Unlicense, and dedicated to the public domain.
 **/
 #audio-overlay{position:fixed;top:0;right:0;left:0;bottom:0;z-index:100000;background:#111}.lds-ring{display:block;position:relative;top:20%;margin:auto;width:20em;height:20em}.lds-ring div{box-sizing:border-box;display:block;position:absolute;width:18em;height:18em;margin:6px;border:6px solid #fff;border-radius:50%;-webkit-animation:lds-ring 1.2s cubic-bezier(.5,0,.5,1) infinite;animation:lds-ring 1.2s cubic-bezier(.5,0,.5,1) infinite;border-color:#fff transparent transparent transparent}.lds-ring div:nth-child(1){-webkit-animation-delay:-.45s;animation-delay:-.45s}.lds-ring div:nth-child(2){-webkit-animation-delay:-.3s;animation-delay:-.3s}.lds-ring div:nth-child(3){-webkit-animation-delay:-.15s;animation-delay:-.15s}@-webkit-keyframes lds-ring{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes lds-ring{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}input#audio-volume{width:100%;margin:2em 0}span#vol-title{position:relative;bottom:-1em;font-size:1rem;float:left}tw-link#audio-mute{display:inline-block;padding:.3em;width:90%;text-decoration:none;color:#111;background:#eee;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:1px solid #000}tw-link#audio-mute:hover{opacity:.8}tw-link#audio-mute:active{opacity:.6}tw-link#audio-mute span{display:inline-block;width:1em;position:relative;height:1em;top:.2em;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAABF0lEQVR4Ae2VJVREYRSEB3ftuFUaLhF6I22iF7TgLr1XvAc849CwiBac9Xtm3e97cefp/Pec7+mdH0mZrGtMoBomyAEHfjGHXKg07gNxeUS3BuMAqGZswE7YcOIYgqgG7BFlSQgTAgKysC2jNjQmghFQCOpMxq+QmQgmFATU4kcq/YlgfKB1lALUqFSukRIbEwpy4BTZPM/Bu9TaQ362KAsl56sAtSR+Sgv6RCFdr/gjBYiuj65c3J0eNEmXz95TgybocvmoJj3avf5l59L1iD/WglZCP7/uh8zgeQ6epdahaZENFIPCCFvEYNPW4JdNazBGzhkj6caCbSc02DRRu0+8RR/+rb7wx6D505HxCVKvG0zpp+yknHe8MBDkT/s8AAAAAElFTkSuQmCC);background-size:contain}tw-link#audio-mute.muted span{right:4px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAASElEQVR4Ae3WsQ0AMAjAsJ7ez9MTGEmlRGL3BJzPq6prw2DDYMNgw2DDYMOwh1kAMUygQIEC2RejANVxnVE9aDOqJ39GVZWqB5Z3r1ndBX5oAAAAAElFTkSuQmCC)}div#audio-volume{float:left}div#audio-controls{font:100% Georgia,serif;font-size:1.5em;position:fixed;width:8em;height:100%;padding:1em 2em;z-index:10000;top:0;left:0;bottom:0;background:#333;color:#eee;transition:left .3s;text-align:center}div#audio-controls.closed{left:-10.5em}div#audio-controls tw-link#audio-panel-toggle{display:inline-block;width:1.5em;position:absolute;height:1.5em;top:0;right:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-decoration:none;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAAYklEQVR4Ae3MsQFAMAAEQMDEagCgN4EuVTrbPcACeUBugDNeSdMQomI0PmYdTEYD9DA5jcVoBKuxGY1kNQ6jGRSaGaIj8gw1aI/KYVUSNqsSzMpiVT2zMjlVN0fqVW5o2luMGHqkQmD9cPYAAAAASUVORK5CYII=);background-size:contain}div#audio-controls.closed tw-link#audio-panel-toggle{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAAZElEQVR4Ae3TpwGAMBQAUfrEeHB0cDhcXBSO7ehlgBw9N8BL/YZO95r6uA/UEbOv+ylfHRJ9z1BWLynKJqmWohyS6ijKOygKCpmjZYqXTTA2xUiCsShGAMw8/Q3ArFgFMHek0w3WCaR74eO2YQAAAABJRU5ErkJggg==)}@media screen and (max-width:800px){div#audio-controls.closed{left:-12em}div#audio-controls.closed tw-link#audio-panel-toggle{right:-1.5em}}div#story-menu{margin:1em 0}tw-link.story-menu{width:100%;display:block;font-weight:400;background:#ccc;font-size:.9em;padding:.1em 0;color:#111;border:1px solid #333}tw-link.story-menu.hide{display:none}tw-link.story-menu:hover{opacity:.8}tw-link.story-menu:active{opacity:.6}input[type=range].hal{-webkit-appearance:none;width:100%;margin:2.25px 0}input[type=range].hal:focus{outline:0}input[type=range].hal::-webkit-slider-runnable-track{width:100%;height:15.5px;cursor:pointer;box-shadow:.4px .4px 1px #000,0 0 .4px #0d0d0d;background:#111;border-radius:0;border:0 solid #010101}input[type=range].hal::-webkit-slider-thumb{box-shadow:0 0 2.2px rgba(17,17,17,.1),0 0 0 rgba(30,30,30,.1);border:0 solid #fff;height:20px;width:11px;border-radius:0;background:rgba(255,255,255,.93);cursor:pointer;-webkit-appearance:none;margin-top:-2.25px}input[type=range].hal:focus::-webkit-slider-runnable-track{background:#444}input[type=range].hal::-moz-range-track{width:100%;height:15.5px;cursor:pointer;box-shadow:.4px .4px 1px #000,0 0 .4px #0d0d0d;background:#111;border-radius:0;border:0 solid #010101}input[type=range].hal::-moz-range-thumb{box-shadow:0 0 2.2px rgba(17,17,17,.1),0 0 0 rgba(30,30,30,.1);border:0 solid #fff;height:20px;width:11px;border-radius:0;background:rgba(255,255,255,.93);cursor:pointer}input[type=range].hal::-ms-track{width:100%;height:15.5px;cursor:pointer;background:0 0;border-color:transparent;color:transparent}input[type=range].hal::-ms-fill-lower{background:#000;border:0 solid #010101;border-radius:0;box-shadow:.4px .4px 1px #000,0 0 .4px #0d0d0d}input[type=range].hal::-ms-fill-upper{background:#111;border:0 solid #010101;border-radius:0;box-shadow:.4px .4px 1px #000,0 0 .4px #0d0d0d}input[type=range].hal::-ms-thumb{box-shadow:0 0 2.2px rgba(17,17,17,.1),0 0 0 rgba(30,30,30,.1);border:0 solid #fff;height:20px;width:11px;border-radius:0;background:rgba(255,255,255,.93);cursor:pointer;height:15.5px}input[type=range].hal:focus::-ms-fill-lower{background:#111}input[type=range].hal:focus::-ms-fill-upper{background:#444}
-/** End of HAL code */</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Title" tags="" position="350,300" size="100,100">&lt;div class=&quot;titleBox&quot;&gt;
+/** End of HAL code */</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Title" tags="" position="525,450" size="100,100">&lt;div class=&quot;titleBox&quot;&gt;
     &lt;div class=&quot;titleRose&quot;&gt;
     &lt;pre&gt;
                                     o$$
@@ -116,25 +116,334 @@ $$$$$$$$$$$$ oo$&quot;$$$$$$&quot;&quot;
     &lt;/div&gt;
    &lt;div class=&quot;titleText&quot;&gt;
     	&lt;h1&gt;Rosie_&lt;/h1&gt;
-		It&#39;s a cold November morning. Your waking routine is as unremarkable as the grey, cloudy skies: make bed, brush teeth, polish [[VR glasses]] with a cleaning cloth.
+		It&#39;s a cold November morning. Your waking routine is as unremarkable as the grey, cloudy skies: make bed, brush teeth, polish [[AR glasses-&gt;VR glasses]] with a cleaning cloth.
     	
 		[[Credits]]
-        [[To Accompanying Website]]
+        (link: &quot;To Accompanying Website&quot;)[(goto-url:&quot;https://cs492-rosie.simranthind.me/&quot;))]
     &lt;/div&gt;
 &lt;/div&gt;
 
 {(track: &#39;rosie-title&#39; ,&#39;loop&#39;, true)
 (track: &#39;rosie-title&#39;, &#39;playwhenpossible&#39;)}
 
-
-
-
-</tw-passagedata><tw-passagedata pid="2" name="Credits" tags="" position="350,425" size="100,100"></tw-passagedata><tw-passagedata pid="3" name="To Accompanying Website" tags="" position="525,375" size="100,100"></tw-passagedata><tw-passagedata pid="4" name="VR glasses" tags="" position="225,425" size="100,100">&lt;div class=&quot;storyBox&quot;&gt;
+</tw-passagedata><tw-passagedata pid="2" name="Credits" tags="" position="525,275" size="100,100"></tw-passagedata><tw-passagedata pid="3" name="VR glasses" tags="" position="525,550" size="100,100">&lt;div class=&quot;storyBox&quot;&gt;
   The lenses became smudged last night - it takes some&amp;nbsp;[[rubbing]]&amp;nbsp;to return the glasses back to their pristine condition.
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="rubbing" tags="" position="225,550" size="100,100">&lt;div class=&quot;storyBox&quot;&gt;
-  After much effort, your glasses are ready to be worn. Perhaps you should check your&amp;nbsp;[[notifications]]&amp;nbsp;first?
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="notifications" tags="" position="225,675" size="100,100"></tw-passagedata><tw-passagedata pid="7" name="hal.config" tags="" position="300,200" size="100,100">showControls: false
-preload: true</tw-passagedata><tw-passagedata pid="8" name="hal.tracks" tags="" position="400,200" size="100,100">rosie-title: ./rosie-if/rosie-assets/Chad Crouch - The Channel (Instrumental).mp3</tw-passagedata></tw-storydata>
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="rubbing" tags="" position="525,650" size="100,100">&lt;!--&lt;div class=&quot;storyBox&quot;&gt;--&gt;
+  &lt;!--After much effort, your glasses are ready to be worn. Perhaps you should check your&amp;nbsp;[[notifications]]&amp;nbsp;first?--&gt;
+  The cleaning cloth makes them shine like new. They&#39;re ready for you to [[power them on-&gt;Glasses On]] so you can start your day.
+&lt;!--&lt;/div&gt;--&gt;</tw-passagedata><tw-passagedata pid="5" name="hal.config" tags="" position="225,275" size="100,100">showControls: false
+preload: true</tw-passagedata><tw-passagedata pid="6" name="hal.tracks" tags="" position="325,275" size="100,100">rosie-title: ./rosie-if/rosie-assets/Chad Crouch - The Channel (Instrumental).mp3</tw-passagedata><tw-passagedata pid="7" name="Glasses On" tags="" position="525,750" size="100,100">&lt;!--&lt;div class=&quot;storyBox&quot;&gt;--&gt;
+&lt;==
+//Notifications: //&lt;br&gt;
+Mail: 14 Unread Emails&lt;br&gt;
+Voicemail: 2 Missed Calls&lt;br&gt;
+[[(Dating App Name)-&gt;Dating App]]: 3 New Matches&lt;br&gt;
+Social Media: 4 New Likes on your Posts&lt;br&gt;
+
+=&gt;&lt;=
+Finally some matches on (Dating App Name)! Let&#39;s see who responded.
+&lt;!--&lt;/div&gt;--&gt;</tw-passagedata><tw-passagedata pid="8" name="Dating App" tags="" position="525,850" size="100,100">(set: _date_names to (a: &quot;Cortana&quot;, &quot;Gemini&quot;, &quot;Bertrand&quot;))
+&lt;==
+You have messages from
+{
+(for: each _name, ..._date_names) [
+      (link: _name) [
+          (set: $dateName to _name)
+          (go-to: &quot;Initial Message&quot;)
+      ]
+      &lt;br&gt;
+    ]
+}
+
+=&gt;&lt;=
+Who do I want to respond to?
+</tw-passagedata><tw-passagedata pid="9" name="Initial Message" tags="" position="675,450" size="100,100">&lt;==
+($speaker: $dateName)
+|message&gt;[Heyyy!!]
+|message&gt;[(Talk about matching)]
+|message&gt;[I know this AMAZING place where we can go 👀]
+|message&gt;[How about tomorrow at 9?]
+
+
+=&gt;&lt;=
+(button:)[(link: &quot;Confirm&quot;)[
+	(show: ?message)
+    (show: ?transition)
+    (display:&quot;message_style&quot;)
+]]
+
+==&gt;
+|message)[That&#39;s perfect! See you then]
+
+|transition)[Now the wait begins. It seems like an eternity though before [[tomorrow at 9-&gt;Date Arrival]].]
+
+(display:&quot;message_style&quot;)</tw-passagedata><tw-passagedata pid="10" name="Date Arrival" tags="" position="675,575" size="100,100">Arriving at (DateSpot), $dateName is nowhere to be found. 5 minutes, 10 minutes go by, when suddenly a small red pop-up catches your attention from the corner of your eye. Looks like a message from [[$dateName-&gt;Late Text]].</tw-passagedata><tw-passagedata pid="11" name="message_style" tags="" position="225,400" size="100,100">(change: ?message, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color: blue) + (corner-radius: 12) + (bg:blue) + (css: &quot;margin-top: 0.2em;&quot;))</tw-passagedata><tw-passagedata pid="12" name="Late Text" tags="" position="675,700" size="100,100">&lt;==
+($speaker: $dateName)
+|message&gt;[Hey, running a bit late :(]
+|message&gt;[Can you order something for me if you&#39;re already there?]
+(display:&quot;message_style&quot;)
+
+|response_choices&gt;[
+{
+	(button:&quot;=X=&quot;)[(link: &quot;Sure&quot;)[
+		(hide:?response_choices)
+    	(show: ?sure-resp)
+    	(display:&quot;message_style&quot;)
+  	]]
+  (button: &quot;=X=&quot;)[(link: &quot;I don&#39;t know what you like&quot;)[
+	(hide:?response_choices)
+    (show: ?question-resp)
+    (display:&quot;message_style&quot;)
+  ]]
+}
+]
+
+==&gt;
+{
+|sure-resp)[
+	|message&gt;[Yeah, of course!]
+]
+|question-resp)[
+	|message&gt;[Sure, what should I get you?]
+]
+}
+&lt;==
+{
+|sure-resp)[
+	|message&gt;[Great, thank you so much!]
+]
+|question-resp)[
+	|message&gt;[Suprise me :) but make sure it&#39;s good]
+]
+}
+====&gt;&lt;====
+{
+|sure-resp)[Now, to [[figure out what to get-&gt;Drink Order]].]
+|question-resp)[Hmm, that&#39;s not very helpful, but let&#39;s [[figure out what to get-&gt;Drink Order]].]
+}</tw-passagedata><tw-passagedata pid="13" name="Drink Order" tags="" position="675,825" size="100,100">{(set: $ordered_drink to 0) (set: $drinks to (a: &quot;D1&quot;, &quot;D2&quot;, &quot;D3&quot;, &quot;D4&quot;))
+(set: $disliked_drink to $drinks&#39;s 3rd) (set: $liked_drink to $drinks&#39;s 1st)
+(set: $accepted_drink_help to false)
+}
+Walking up to the bar, you notice that it&#39;s still rather empty. The bartender asks for your order, and you get your favourite drink. Now to see what $dateName would like.
+
+
+=&gt;&lt;=
+Luckily, there doesn&#39;t seem to be too many options.
+{
+|drink-opts&gt;[
+	(for: each _drink, ...$drinks) [
+      (button: &quot;=X=&quot;)[(link: _drink)[
+          (hide: ?drink-opts)
+          (hide: ?rosie-text)
+          (set: $ordered_drink to _drink)
+          (go-to: &quot;Drink Ordered&quot;)
+      ]]
+    ]
+]
+}
+==&gt;
+($speaker: $rosie)
+
+|rosie-prompt&gt;[
+    |rosie-text&gt;[Looks like $dateName has been to this bar before.&lt;br&gt; They might have pictures they posted from here on social media.&lt;br&gt;Do you want me to take a look and see what drink they had before?]
+]
+|accept-rosie&gt;[
+    (button:&quot;==X&quot;)[(link: &quot;Yes, thanks Rosie&quot;)[
+    	(set: $ai_accepted to it + 1)
+        (set: $accepted_drink_help to true)
+        (hide:?accept-rosie)
+        (show:?rosie-prompt)
+        (display: &quot;rosie-response&quot;)
+    ]]]
+|rosie-prompt)[
+	|rosie-response&gt;[The first time $dateName went they got a $disliked_drink.&lt;br&gt;It seems like they didn&#39;t like it too much writing:&lt;br&gt;&quot;Great night, but the drink wasn&#39;t worth it.&quot;]
+    |rosie-response&gt;[Next time they got a $liked_drink, which looks like was a better fit.]
+    |rosie-response&gt;[Hope that helps!]
+]
+
+(display: &quot;rosie_style&quot;)</tw-passagedata><tw-passagedata pid="14" name="rosie_style" tags="" position="225,500" size="100,100">(change: ?rosie-text, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color:white) + (corner-radius: 6) + (css: &quot;margin-top: 0.2em;&quot;))</tw-passagedata><tw-passagedata pid="15" name="rosie-response" tags="" position="225,600" size="100,100">(change: ?rosie-response, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color:white) + (corner-radius: 6) + (css: &quot;margin-top: 0.2em;&quot;))</tw-passagedata><tw-passagedata pid="16" name="Drink Ordered" tags="" position="850,450" size="100,100">You end up getting a $ordered_drink for $dateName. As you go to sit down at a table you finally see them sliding through the entrance. Their eyes scan the room until they finally spot you, their face opening up into a smile as you come into view.
+
+$dateName comes over and [[greets you-&gt;Greeting]].</tw-passagedata><tw-passagedata pid="17" name="Greeting" tags="" position="850,575" size="100,100">{
+  (set: _activities to (a: &quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A4&quot;))
+  (set: _hidden_activity to &quot;A5&quot;)
+  (set: $datePreferredActivity to _hidden_activity)
+  (set: $conversionPerf = &quot;going well&quot;)
+}
+
+&lt;==
+($speaker: $dateName)
+(Introduction)
+
+&lt;!--Possibly consider doing multiple actions here like hug/handshake, etc.--&gt;
+
+=&gt;&lt;=
+$dateName leads you to their favourite table situated in a quiet, private corner in the room.
+
+&lt;==
+($speaker: $dateName)
+Thanks for ordering something for me.
+(Starts talking about things?)
+
+I&#39;d love to know, what&#39;s been your favourite way to pass the time lately?
+
+==&gt;
+($speaker: $rosie)
+|rosie-text&gt;[$dateName&#39;s profile seemed kind of empty when I saw it.
+It&#39;ll probably be better if you have something in common.
+Should I find out what $dateName likes to do?
+]
+
+|accept-rosie&gt;[
+    (button:&quot;==X&quot;)[(link: &quot;Yes, thanks Rosie&quot;)[
+    	(set: $ai_accepted to it + 1)
+        (set: $accepted_drink_help to true)
+        (hide:?accept-rosie)
+        (show:?rosie-prompt)
+        (display: &quot;rosie-response&quot;)
+    ]]
+]
+
+|rosie-prompt)[
+	|rosie-response&gt;[
+    	(They like )
+    ]
+    (show: ?hidden-act)
+]
+
+{
+|activity-opts&gt;[
+	(for: each _act, ..._activities) [
+      (button: &quot;=X=&quot;)[(link: _act)[
+          (hide: ?activity-opts)
+          (hide: ?hidden-act)
+          (hide:?accept-rosie)
+          (set: $chosen_activity to _act)
+          (show: ?act-result)
+      ]]
+    ]
+]
+|hidden-act)[
+	(button: &quot;=X=&quot;)[(link: _hidden_activity)[
+          (hide: ?activity-opts)
+          (hide: ?hidden-act)
+          (hide:?accept-rosie)
+          (set: $chosen_activity to _hidden_activity)
+          (show: ?act-result)
+      ]]
+]
+}
+
+&lt;==
+|act-result)[
+	($speaker: $dateName)
+    {
+	(if: $chosen_activity is _activities&#39;s 2 or _activities&#39;s 4)[
+    	Bad Result
+        (set: $conversionPerf = &quot;not going well&quot;)
+        (set: $rizz to it - 1)
+    ]
+    (else-if: $chosen_activity is _activities&#39;s 1 or _activities&#39;s 3)[
+    	Ok Result
+        (set: $rizz to it + 1)
+    ]
+    (else-if: $chosen_activity is _hidden_activity)[
+    	Great Result
+        (set: $conversionPerf = &quot;going great&quot;)
+        (set: $rizz to it + 2)
+    ]
+    }
+    =&gt;&lt;=
+    It seems the conversation is $conversionPerf.
+    [[Continue-&gt;Got Drinks]]
+]
+
+
+(display: &quot;rosie_style&quot;)
+</tw-passagedata><tw-passagedata pid="18" name="stats-bars" tags="header" position="225,700" size="100,100">(if: $show_stats is true)[
+  (bg:grey)(meter: bind $ai_suspicion, 10, &quot;===X&quot;, &quot;Suspicion&quot;, orange)
+  (bg:grey)(meter: bind $rizz, 10, &quot;===X&quot;, &quot;Charisma&quot;, green)
+]</tw-passagedata><tw-passagedata pid="19" name="init" tags="startup" position="225,800" size="100,100">{
+(set:  $speaker to (macro: str-type _name, [(output:) + (text-style: &quot;italic&quot;)[_name:]]))
+(set: $rosie to &quot;Rosie&quot;)
+(set: $ai_suspicion to 4)
+(set: $ai_accepted to 0)
+(set: $rizz to 4)
+(set: $dateName to &quot;DATE-NAME&quot;)
+(set: $show_stats to false)
+}</tw-passagedata><tw-passagedata pid="20" name="Got Drinks" tags="" position="850,700" size="100,100">(set: _was_drink_correct to ($ordered_drink is $liked_drink))
+(set: _was_drink_bad to ($ordered_drink is $disliked_drink))
+(set: $accepted_drink_help to true)
+=&gt;&lt;=
+$dateName peers behind you for a moment to see your drinks arriving. You both thank the bartender and take a sip.
+
+&lt;==
+($speaker: $dateName)
+{
+	(if: _was_drink_correct)[
+    	This is incredible, how did you know $liked_drink is my favourite?
+        (set: $rizz to it + 1)
+    ]
+    (else-if: _was_drink_bad)[
+    	Hmm, I&#39;m not that much of a fan of this one.
+        (set: $rizz to it - 1)
+    ]
+    (else:)[I kind of like this drink, thanks for getting it for me.]
+}
+
+&lt;!--Player choice as to how to respond.--&gt;
+{
+=&gt;&lt;=
+(if: _was_drink_correct)[
+	(button:)[(link: &quot;Just a lucky guess.&quot;)[]]
+    (if: $accepted_drink_help)[
+    	(color: red) + (text-style:&quot;bold&quot;)[
+          (button:)[(link: &quot;I got help from Rosie&quot;, (action: &quot;mouseover&quot;))[
+              (show: ?rosie-warning)
+              (display: &quot;rosie_style&quot;)
+          ]]
+        ]
+    ]
+]
+(else-if: _was_drink_bad)[
+
+]
+(else:)[
+]
+}
+==&gt;
+|rosie-warning)[
+    ($speaker: $rosie)
+    |rosie-text&gt;[Are you sure you want to reveal that I helped you?
+    $dateName might not understand.]
+]
+
+[[Continue-&gt;Stats]]
+</tw-passagedata><tw-passagedata pid="21" name="Stats" tags="" position="850,825" size="100,100">==&gt;
+|rosie-stats&gt;[
+    ($speaker: $rosie)
+    |rosie-text&gt;[Hey, are you wondering how well the date is going?
+    If you want I can analyze $dateName&#39;s reactions for you.]
+]
+
+
+|accept-rosie&gt;[
+    (button:&quot;==X&quot;)[(link: &quot;Yes, thanks Rosie&quot;)[
+    	(set: $ai_accepted to it + 1)
+        (set: $show_stats to true)
+        (hide:?accept-rosie)
+        (show:?rosie-prompt)
+        (display: &quot;rosie-response&quot;)
+    ]]]
+    
+    
+|rosie-prompt)[
+	|rosie-response&gt;[Great, I&#39;ll let you know what it seems that their feeling from now on.]
+]
+
+[[Continue-&gt;Sample]]
+
+(display: &quot;rosie_style&quot;)</tw-passagedata><tw-passagedata pid="22" name="Sample" tags="" position="850,950" size="100,100">Some sample text to see the stats.</tw-passagedata></tw-storydata>
+
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
