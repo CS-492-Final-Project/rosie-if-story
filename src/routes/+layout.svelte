@@ -1,39 +1,15 @@
 <script lang="ts">
-	import Header from './Header.svelte';
+	import Header from '../components/Header.svelte';
+	import Footer from '../components/Footer.svelte';
 	import '../app.css';
-	
+
 	let { children } = $props();
 </script>
 
-<div class="app">
+<div class="flex-column min-h-full">
 	<Header />
-	<main>
+	<main class="flex-column m-0 items-center justify-center p-[1rem]">
 		{@render children()}
 	</main>
+	<Footer />
 </div>
-
-<style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 86rem;
-		margin: 0 auto;
-		margin-bottom: 64px;
-		box-sizing: border-box;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
-</style>
