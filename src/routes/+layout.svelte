@@ -8,7 +8,7 @@
 
 <div class="flex-column min-h-full">
 	<Header />
-	<main class="flex-column m-0 items-center justify-center p-[1rem]">
+	<main class="flex-column m-0 items-center justify-center p-[1rem] pb-16">
 		{@render children()}
 	</main>
 	<Footer />
