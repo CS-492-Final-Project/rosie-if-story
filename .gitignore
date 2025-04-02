@@ -21,3 +21,11 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Ren-py files
+**/*.rpyc
+**/*.rpa
+**/*.rpymc
+**/cache/
+errors.txt
+log.txt
