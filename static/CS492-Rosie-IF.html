@@ -514,8 +514,8 @@ Should I find out what $dateName likes to do?
 
 (display: &quot;rosie_style&quot;)
 </tw-passagedata><tw-passagedata pid="14" name="stats-bars" tags="header" position="325,425" size="100,100">(if: $show_stats is true)[
-  (bg:grey)(meter: bind $ai_suspicion, 10, &quot;===X&quot;, &quot;Suspicion&quot;, orange)
-  (bg:grey)(meter: bind $rizz, 10, &quot;===X&quot;, &quot;Charisma&quot;, green)
+  (bg:grey)(meter: bind $ai_suspicion, 10, &quot;===X&quot;, &quot;Suspicion&quot;, #afa432)
+  (bg:grey)(meter: bind $rizz, 10, &quot;===X&quot;, &quot;Charisma&quot;, #a432af)
 ]</tw-passagedata><tw-passagedata pid="15" name="init" tags="startup" position="525,250" size="100,100">{
 (set:  $speaker to (macro: str-type _name, [(output:)+(text-color:black)+(text-style: &quot;italic&quot;)[_name:]]))
 (set: $rosie to &quot;Rosie&quot;)
@@ -525,6 +525,7 @@ Should I find out what $dateName likes to do?
 (set: $rizz to 4)
 (set: $dateName to &quot;DATE-NAME&quot;)
 (set: $show_stats to false)
+(set: $did_prescren to false)
 }</tw-passagedata><tw-passagedata pid="16" name="Got Drinks" tags="" position="1100,625" size="100,100">(set: _was_drink_correct to ($ordered_drink is $liked_drink))
 (set: _was_drink_bad to ($ordered_drink is $disliked_drink))
 (set: $accepted_drink_help to true)
@@ -676,7 +677,8 @@ $dateName peers behind you for a moment to see your drinks arriving. You both th
 	She has two pet rats.&lt;br/&gt;
 	She has posted pictures showing her crocheting and biking.&lt;br/&gt;
 	One of her jobs is in journalism.]
-     {(stop:)}]]}</tw-passagedata><tw-passagedata pid="29" name="Thanks Rosie!" tags="" position="200,1775" size="100,100">=&gt;&lt;=
+     {(stop:)}]]
+    (set: $did_prescren to true)}</tw-passagedata><tw-passagedata pid="29" name="Thanks Rosie!" tags="" position="200,1775" size="100,100">=&gt;&lt;=
 ($speaker: $rosie)
 |rosie-text&gt;[No problem. Good luck tomorrow!]
 (display: &quot;rosie_style&quot;)
@@ -721,7 +723,7 @@ $dateName peers behind you for a moment to see your drinks arriving. You both th
 ($speaker: $annabel)
 &lt;div class=&quot;speech-bubble&quot;&gt;Oh my gosh, how did you know this one’s my favourite? You haven’t been stalking me, have you?&lt;/div&gt;
 
-(button:&quot;=X=&quot;)[[Laugh nervously]]</tw-passagedata><tw-passagedata pid="39" name="Laugh nervously" tags="" position="350,2400" size="100,100">=&gt;&lt;=
+(button:&quot;=X=&quot;)[[Laugh nervously.-&gt;AskAboutStats]]</tw-passagedata><tw-passagedata pid="39" name="AskAboutStats" tags="" position="350,2400" size="100,100">=&gt;&lt;=
  &lt;!--Use user [name] here?--&gt;
 ($speaker: $rosie)
 |rosie-text&gt;[Hey, you seem a bit nervous. 
@@ -729,12 +731,135 @@ $dateName peers behind you for a moment to see your drinks arriving. You both th
 I can help you figure out how she’s feeling — just so you can get a feel for how the date’s going, if you want.]
 (display: &quot;rosie_style&quot;)
 
-(button:&quot;=X=&quot;)[[Yeah, sure.]]
-(button:&quot;=X=&quot;)[[No thanks.]]</tw-passagedata><tw-passagedata pid="40" name="perplexed" tags="" position="275,2275" size="100,100">=&gt;&lt;=
+(button:&quot;=X=&quot;)[[Yeah, sure.-&gt;AcceptStats]]
+(button:&quot;=X=&quot;)[[No thanks.-&gt;RejectStats]]</tw-passagedata><tw-passagedata pid="40" name="perplexed" tags="" position="275,2275" size="100,100">=&gt;&lt;=
 ($speaker: $annabel)
 &lt;div class=&quot;speech-bubble&quot;&gt;Hey! Oh, this is... interesting.&lt;/div&gt;
 
-(button:&quot;=X=&quot;)[[Laugh nervously]]</tw-passagedata><tw-passagedata pid="41" name="Yeah, sure." tags="" position="250,2525" size="100,100"></tw-passagedata><tw-passagedata pid="42" name="No thanks." tags="" position="425,2525" size="100,100"></tw-passagedata></tw-storydata>
+(button:&quot;=X=&quot;)[[Laugh nervously.-&gt;AskAboutStats]]</tw-passagedata><tw-passagedata pid="41" name="AcceptStats" tags="" position="250,2525" size="100,100">{
+(set: $show_stats to true)
+=&gt;&lt;=
+($speaker: $rosie)
+|rosie-text&gt;[Great! I’ll analyse her microexpressions so you can see how you’re doing.? ]
+(display: &quot;rosie_style&quot;)
+}
+(button:&quot;=X=&quot;)[[Great, this is going to help a lot.-&gt;MusicTaste]]</tw-passagedata><tw-passagedata pid="42" name="RejectStats" tags="" position="425,2525" size="100,100">=&gt;&lt;=
+($speaker: $rosie)
+|rosie-text&gt;[Are you sure? ]
+(display: &quot;rosie_style&quot;)
+
+(button:&quot;=X=&quot;)[[Ah, why not.-&gt;AcceptStats]]
+(button:&quot;=X=&quot;)[[Yeah, I&#39;m sure.-&gt;RejectStatsConfirmed]]</tw-passagedata><tw-passagedata pid="43" name="RejectStatsConfirmed" tags="" position="425,2650" size="100,100">=&gt;&lt;=
+ &lt;!--Use user [name] here?--&gt;
+($speaker: $rosie)
+|rosie-text&gt;[Alright, you&#39;re on your own then.]
+(display: &quot;rosie_style&quot;)
+
+(button:&quot;=X=&quot;)[[Look back to $annabel.-&gt;MusicTaste]]</tw-passagedata><tw-passagedata pid="44" name="MusicTaste" tags="" position="425,2775" size="100,100">=&gt;&lt;=
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;So...&lt;/div&gt;
+{
+&lt;p class=&quot;p-expo&quot;&gt;
+	(if: $rizz &gt; 4)[$annabel looks at you with a discerning eye.]
+	(else: )[You see $annabel twiddling her thumbs.]
+&lt;/p&gt;
+}
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;What kind of music do you listen to?&lt;/div&gt;
+
+($speaker: $rosie)
+|rosie-text&gt;[Your interest in dubstep is not commonly shared or favoured. It&#39;s hard to know if she&#39;ll like it.]
+{
+ (if: $did_prescreen is true)[
+	|rosie-text&gt;[Consider swapping for rock or indie. It seemed liked Annabel like those more when I looked online before.]
+    ]
+}
+
+(button:&quot;=X=&quot;)[[I like dubstep.-&gt;Dubstep]]
+(button:&quot;=X=&quot;)[[I really like indie rock.-&gt;IndieRock]]
+
+(display: &quot;rosie_style&quot;)
+</tw-passagedata><tw-passagedata pid="45" name="DATING APP NOTIF" tags="" position="550,900" size="100,100"></tw-passagedata><tw-passagedata pid="46" name="CHECK BEFORE DATE" tags="" position="100,1400" size="100,100"></tw-passagedata><tw-passagedata pid="47" name="ROSIE GETS FAVOURITE DRINK" tags="" position="800,2025" size="100,100"></tw-passagedata><tw-passagedata pid="48" name="ROSIE ANALYZES EXPRESSIONS" tags="" position="200,2400" size="100,100"></tw-passagedata><tw-passagedata pid="49" name="Dubstep" tags="" position="425,2900" size="100,100">=&gt;&lt;=
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;Like Skrillex? People still listen to that kind of music?&lt;/div&gt;
+{
+&lt;p class=&quot;p-expo&quot;&gt;
+$annabel raises an eyebrow for a moment out of instinct, before quickly relaxing her face.
+&lt;/p&gt;
+}
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;Hey, I respect it though.&lt;/div&gt;
+
+(button:&quot;X&quot;)[[I know it’s not something that everybody enjoys, but I personally love it.-&gt;ClimateStart]]</tw-passagedata><tw-passagedata pid="50" name="IndieRock" tags="" position="550,2900" size="100,100">=&gt;&lt;=
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;Woah, no way! I love Indie rock!! What’s your favourite artist?
+&lt;/div&gt;
+
+($speaker: $rosie)
+|rosie-text&gt;[Don’t panic if you don’t know any artists! You can just say Arcade Fire, The Stokes, or Tame Impala.
+
+You&#39;ve got this!]
+}
+
+(button:&quot;=X=&quot;)[[Arcade Fire-&gt;MusicBand]]
+(button:&quot;=X=&quot;)[[The Stokes-&gt;MusicBand]]
+(button:&quot;=X=&quot;)[[Tame Impala-&gt;MusicBand]]
+
+(display: &quot;rosie_style&quot;)
+</tw-passagedata><tw-passagedata pid="51" name="ClimateStart" tags="" position="400,3100" size="100,100">=&gt;&lt;=
+&lt;p class=&quot;p-expo&quot;&gt;The room is silent for a brief period of time, and both you and Annabel are thinking of what to discuss.
+&lt;/p&gt;
+
+&lt;p class=&quot;p-expo&quot;&gt;On your dating profile, you mentioned that you are a climate activist, since you are seriously concerned about the ongoing climate catastrophe. Annabel has taken particular note of this.
+&lt;/p&gt;
+
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;On your profile, it seems like you’re very passionate about climate change. There’s a lot of hype about it, almost maybe too much hype? What do you think we should do about it?&lt;/div&gt;
+
+&lt;p class=&quot;p-expo&quot;&gt;
+Looks like [[$rosie-&gt;ClimateRosie]] has something to say.
+&lt;/p&gt;</tw-passagedata><tw-passagedata pid="52" name="MusicBand" tags="" position="550,3025" size="100,100">($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;
+Classic choice; everybody that I talk to happens to love that artist...
+&lt;/div&gt;
+
+(button:&quot;=X=&quot;)[[The energy in the room has definitely shifted.-&gt;ClimateStart]]</tw-passagedata><tw-passagedata pid="53" name="ClimateRosie" tags="" position="400,3200" size="100,100">=&gt;&lt;=
+($speaker: $rosie)
+|rosie-text&gt;[Climate change is a particularly sensitive topic, and many people disengage when topics like these become “too real”. Consider responding with something more neutral or agreeable.]
+
+&lt;p class=&quot;p-expo&quot;&gt;$rosie makes a good point if I want to keep the date going well. How do I feel about this though?
+&lt;/p&gt;
+
+(button:&quot;X&quot;)[[I do believe it’s an issue, but I’m not one to protest or anything. I just recycle and do what I can.-&gt;ClimateLax]]
+(button:&quot;X&quot;)[[I believe we ought to do what we can to bring awareness and advocate for better policy.-&gt;ClimateModerate]]
+(button:&quot;X&quot;)[[There’s not enough hype honestly; we need radical, systemic changes now.-&gt;ClimateIntense]]
+
+(display: &quot;rosie_style&quot;)</tw-passagedata><tw-passagedata pid="54" name="ClimateLax" tags="" position="300,3325" size="100,100">=&gt;&lt;=
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;I like that you’re not too extreme about it. Climate change is concerning, but shouldn’t be all we focus on.&lt;/div&gt;
+
+&lt;p class=&quot;p-expo&quot;&gt;
+It feels like that went over well. Now it&#39;s my turn to [[ask a question-&gt;JobQuestion]].
+&lt;/p&gt;</tw-passagedata><tw-passagedata pid="55" name="ClimateModerate" tags="" position="400,3325" size="100,100">=&gt;&lt;=
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;Hm, seems like a lot of work to do, but I respect your efforts.&lt;/div&gt;
+
+($speaker: $rosie)
+|rosie-text&gt;[$annabel appears accepting of your answer, though maybe [[change the subject-&gt;JobQuestion]]?]
+</tw-passagedata><tw-passagedata pid="56" name="ClimateIntense" tags="" position="500,3325" size="100,100">=&gt;&lt;=
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;
+Whoa, that’s quite intense.
+&lt;/div&gt;
+
+($speaker: $rosie)
+|rosie-text&gt;[
+Annabel does not appear to like your answer. It would be a good idea to deescalate and talk about something else...
+]
+
+&lt;p class=&quot;p-expo&quot;&gt;
+You decide for the sake of not ruining your date to follow Rosie’s advice this time, and you [[deescalate the situation-&gt;JobQuestion]]. However, you still ultimately feel deep down that your answer is right and justified.
+&lt;/p&gt;</tw-passagedata><tw-passagedata pid="57" name="JobQuestion" tags="" position="400,3500" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
