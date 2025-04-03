@@ -9,7 +9,9 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play CS492-Rosie-IF.</tw-noscript></noscript></tw-story>
-<tw-storydata name="CS492-Rosie-IF" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CAF088-4CED-4D92-A6D2-87DF280EEC8A" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import 'https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap';
+<tw-storydata name="CS492-Rosie-IF" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CAF088-4CED-4D92-A6D2-87DF280EEC8A" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900');
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+@import url('https://fonts.googleapis.com/css?family=Outfit:wght@100..900');
 
 /* Sidebar testing... */
 tw-sidebar {
@@ -33,52 +35,52 @@ tw-icon[title="Undo"], tw-icon[title="Redo"] {
   	gap: 20px;
 }
 .titleRose {
-  	max-height: 95vh;
+	max-height: 95vh;
 }
 
 tw-story {
-   background-color: white;
-   margin: 0;
-   padding: 10px;
-   justify-content: center;
+	background-color: white;
+	margin: 0;
+  	padding: 10px;
+  	justify-content: center;
 }
 
 h1{
-  font-family: "Source Code Pro", monospace;
-  font-optical-sizing: auto;
-  font-weight:  300;
-  font-style: normal;
-  padding: 0px;
-  margin: 0px;
-  color: #c84976;
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight:  300;
+    font-style: normal;
+    padding: 0px;
+    margin: 0px;
+    color: #c84976;
 }
 
 /* Text formatting: */
 
 p, .p-expo {
-  padding: 0px;
-  margin: 0px;
-  color: black;
+    padding: 0px;
+    margin: 0px;
+    color: black;
 }
 .p-expo {
-  text-align: center;
+	text-align: center;
 }
 pre {
-  color: black;
+	color: black;
 }
 tw-link{
-  color: #c84976; /* Regular pink. */
+	color: #c84976; /* Regular pink. */
 }
 tw-link:hover{
-  color: #7b2d48; /* Hover (darker) pink. */
+	color: #7b2d48; /* Hover (darker) pink. */
 }
 
 tw-enchantment tw-link {
-  color: #f0a1a4; /* Light pink. */
+	color: #f0a1a4; /* Light pink. */
 }
 
 tw-enchantment tw-link:hover {
-   color: #c84976; /* Regular pink. */
+	color: #c84976; /* Regular pink. */
 }
 /* Button macro formatting: */
 
@@ -88,7 +90,6 @@ tw-enchantment tw-link:hover {
     border-width: 2px;
     text-align: center;
     padding: 0px 8px;
-    display: block;
   	background-color: #c84976;
   	color: white;
 }
@@ -125,7 +126,104 @@ tw-enchantment tw-link:hover {
 .dating-profile-content {
  	padding-left: 10px;
   	margin: 0px;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Title" tags="" position="525,375" size="100,100">&lt;div class=&quot;titleBox&quot;&gt;
+}
+
+/* Progress bar (Rosie Loading Bar) */
+#progress-bar-background {
+  	border-radius: 16px;
+    border-style: solid;
+    border-width: 2px;
+  	border-color: grey;
+  	width: 50%;
+  	margin-inline: auto;
+}
+#progress-bar {
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 2px;
+    width: 0;
+    background: #c84976; /* Regular pink. */
+    text-align: center;
+    overflow: hidden; 
+}
+
+/* Cocktail menu */
+.cocktail-menu {
+ 	display: flex;
+  	flex-direction: column;
+  	border-style: ridge;
+  	border-width: 10px;
+  	border-color: sandybrown;
+  	background-color: cornsilk;
+    padding: 20px;
+  	width: 50%;
+  	margin-inline: auto;
+  	justify-content: center;
+    align-items: center;
+}
+
+h3 {
+  font-family: "Sacramento", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: sandybrown;
+}
+
+.cocktail-menu-item {
+ 	font-family: "Outfit", sans-serif;
+  	font-optical-sizing: auto;
+  	font-weight: 100;
+  	font-style: normal;
+}
+
+/* Annabel speech bubble - https://projects.verou.me/bubbly/ */
+
+.speech-bubble {
+	position: relative;
+	background: #97a2fd;
+	border-radius: .4em;
+ 	width: 50%;
+  	padding: 10px;
+    margin-inline: auto;
+  	justify-content: center;
+    align-items: center;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 1.35em solid transparent;
+	border-top-color: #97a2fd;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -0.675em;
+	margin-bottom: -1.35em;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">if (!window.progress) {
+	window.progress = function() {
+        var	$bar = $("#progress-bar"); 
+            var $back = $("#progress-bar-background"); 
+            var width = 0;
+
+            $bar.css("width", width + "%");
+
+            var intervalId = setInterval(function() {
+                width = Math.max(0, width + 10);
+                if (width === 100) {
+                    clearInterval(intervalId);
+                }
+                $bar.css("width", width + "%");
+            }, 500);
+
+            var wait = setTimeout(() => {
+                $bar.css("display", "none");
+                $back.css("display", "none");
+            }, 6000);
+	};
+}</script><tw-passagedata pid="1" name="Title" tags="" position="525,375" size="100,100">&lt;div class=&quot;titleBox&quot;&gt;
     &lt;div class=&quot;titleRose&quot;&gt;
     &lt;pre&gt;
                                     o$$
@@ -178,13 +276,13 @@ $$$$$$$$$$$$ oo$&quot;$$$$$$&quot;&quot;
     &lt;/div&gt;
    &lt;div class=&quot;titleText&quot;&gt;
     	&lt;img src=&quot;./rosie-assets/rosie-icon.png&quot; height=&quot;100px&quot;/&gt;
-		&lt;p&gt;It&#39;s a cold November morning. Your waking routine is as unremarkable as the grey, cloudy skies: make bed, brush teeth, polish [[AR glasses-&gt;VR glasses]] with a cleaning cloth.&lt;/p&gt;
+		&lt;p&gt;It&#39;s a cold November morning. Your waking routine is as unremarkable as the grey, cloudy skies: make bed, brush teeth, polish [[AR glasses-&gt;AR glasses]] with a cleaning cloth.&lt;/p&gt;
     	
 		&lt;p&gt;This game is a project from UWaterloo&#39;s CS492 - The Social Implications of Computing class. For more information and credits, check out the &lt;a href=&quot;https://github.com/CS-492-Final-Project/rosie-if-story&quot;&gt;game&#39;s repository&lt;/a&gt;.&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="2" name="VR glasses" tags="" position="525,525" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;The lenses became smudged last night - it takes some&amp;nbsp;[[rubbing]]&amp;nbsp;to return the glasses back to their pristine condition.&lt;/p&gt;
+</tw-passagedata><tw-passagedata pid="2" name="AR glasses" tags="" position="525,525" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;The lenses became smudged last night - it takes some&amp;nbsp;[[rubbing]]&amp;nbsp;to return the glasses back to their pristine condition.&lt;/p&gt;
 </tw-passagedata><tw-passagedata pid="3" name="rubbing" tags="" position="525,650" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;The cleaning cloth makes them sparkle.&lt;/p&gt;
 
 =&gt;&lt;=
@@ -317,9 +415,9 @@ Luckily, there doesn&#39;t seem to be too many options.
     |rosie-response&gt;[Hope that helps!]
 ]
 
-(display: &quot;rosie_style&quot;)</tw-passagedata><tw-passagedata pid="11" name="rosie_style" tags="" position="200,350" size="100,100">(change: ?rosie-text, (border: &quot;dotted&quot;) + (border-size: 4)+ (border-color: &quot;#c84976&quot;) + (corner-radius: 6) + (css: &quot;margin-top: 0.2em; color: #c84976;&quot;))</tw-passagedata><tw-passagedata pid="12" name="rosie-response" tags="" position="200,475" size="100,100">(change: ?rosie-response, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color:white) + (corner-radius: 6) + (css: &quot;margin-top: 0.2em;&quot;))</tw-passagedata><tw-passagedata pid="13" name="Drink Ordered" tags="" position="1100,375" size="100,100">You end up getting a $ordered_drink for $dateName. As you go to sit down at a table you finally see them sliding through the entrance. Their eyes scan the room until they finally spot you, their face opening up into a smile as you come into view.
+(display: &quot;rosie_style&quot;)</tw-passagedata><tw-passagedata pid="11" name="rosie_style" tags="" position="200,425" size="100,100">(change: ?rosie-text, (border: &quot;dotted&quot;) + (border-size: 4)+ (border-color: &quot;#c84976&quot;) + (corner-radius: 6) + (css: &quot;margin-top: 0.2em; color: #c84976;&quot;))</tw-passagedata><tw-passagedata pid="12" name="Drink Ordered" tags="" position="1100,375" size="100,100">You end up getting a $ordered_drink for $dateName. As you go to sit down at a table you finally see them sliding through the entrance. Their eyes scan the room until they finally spot you, their face opening up into a smile as you come into view.
 
-$dateName comes over and [[greets you-&gt;Greeting]].</tw-passagedata><tw-passagedata pid="14" name="Greeting" tags="" position="1100,500" size="100,100">{
+$dateName comes over and [[greets you-&gt;Greeting]].</tw-passagedata><tw-passagedata pid="13" name="Greeting" tags="" position="1100,500" size="100,100">{
   (set: _activities to (a: &quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A4&quot;))
   (set: _hidden_activity to &quot;A5&quot;)
   (set: $datePreferredActivity to _hidden_activity)
@@ -415,18 +513,19 @@ Should I find out what $dateName likes to do?
 
 
 (display: &quot;rosie_style&quot;)
-</tw-passagedata><tw-passagedata pid="15" name="stats-bars" tags="header" position="325,425" size="100,100">(if: $show_stats is true)[
+</tw-passagedata><tw-passagedata pid="14" name="stats-bars" tags="header" position="325,425" size="100,100">(if: $show_stats is true)[
   (bg:grey)(meter: bind $ai_suspicion, 10, &quot;===X&quot;, &quot;Suspicion&quot;, orange)
   (bg:grey)(meter: bind $rizz, 10, &quot;===X&quot;, &quot;Charisma&quot;, green)
-]</tw-passagedata><tw-passagedata pid="16" name="init" tags="startup" position="525,250" size="100,100">{
+]</tw-passagedata><tw-passagedata pid="15" name="init" tags="startup" position="525,250" size="100,100">{
 (set:  $speaker to (macro: str-type _name, [(output:)+(text-color:black)+(text-style: &quot;italic&quot;)[_name:]]))
 (set: $rosie to &quot;Rosie&quot;)
+(set: $annabel to &quot;Annabel&quot;)
 (set: $ai_suspicion to 4)
 (set: $ai_accepted to 0)
 (set: $rizz to 4)
 (set: $dateName to &quot;DATE-NAME&quot;)
 (set: $show_stats to false)
-}</tw-passagedata><tw-passagedata pid="17" name="Got Drinks" tags="" position="1100,625" size="100,100">(set: _was_drink_correct to ($ordered_drink is $liked_drink))
+}</tw-passagedata><tw-passagedata pid="16" name="Got Drinks" tags="" position="1100,625" size="100,100">(set: _was_drink_correct to ($ordered_drink is $liked_drink))
 (set: _was_drink_bad to ($ordered_drink is $disliked_drink))
 (set: $accepted_drink_help to true)
 =&gt;&lt;=
@@ -474,7 +573,7 @@ $dateName peers behind you for a moment to see your drinks arriving. You both th
 ]
 
 [[Continue-&gt;Stats]]
-</tw-passagedata><tw-passagedata pid="18" name="Stats" tags="" position="1100,750" size="100,100">==&gt;
+</tw-passagedata><tw-passagedata pid="17" name="Stats" tags="" position="1100,750" size="100,100">==&gt;
 |rosie-stats&gt;[
     ($speaker: $rosie)
     |rosie-text&gt;[Hey, are you wondering how well the date is going?
@@ -498,17 +597,17 @@ $dateName peers behind you for a moment to see your drinks arriving. You both th
 
 [[Continue-&gt;Sample]]
 
-(display: &quot;rosie_style&quot;)</tw-passagedata><tw-passagedata pid="19" name="Sample" tags="" position="1100,875" size="100,100">Some sample text to see the stats.</tw-passagedata><tw-passagedata pid="20" name="Put them on" tags="" position="400,775" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You put on the glasses. Rosie, your dear virtual assistant, is waiting for you.&lt;/p&gt;
+(display: &quot;rosie_style&quot;)</tw-passagedata><tw-passagedata pid="18" name="Sample" tags="" position="1100,875" size="100,100">Some sample text to see the stats.</tw-passagedata><tw-passagedata pid="19" name="Put them on" tags="" position="400,775" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You put on the glasses. Rosie, your dear virtual assistant, is waiting for you.&lt;/p&gt;
 
 =&gt;&lt;=
-(button:&quot;=X=&quot;)[[Check my notifications]]</tw-passagedata><tw-passagedata pid="21" name="Check my notifications" tags="" position="400,900" size="100,100">=&gt;&lt;=
+(button:&quot;=X=&quot;)[[Check my notifications]]</tw-passagedata><tw-passagedata pid="20" name="Check my notifications" tags="" position="400,900" size="100,100">=&gt;&lt;=
  &lt;!--Save user [name] here?--&gt;
 ($speaker: $rosie)
 |rosie-text&gt;[Hi there! You’ve got a new match on Beehive. Wanna check them out?]
 (display: &quot;rosie_style&quot;)
 
 (button:&quot;=X=&quot;)[[Let&#39;s do it]]
-</tw-passagedata><tw-passagedata pid="22" name="Let&#39;s do it" tags="" position="400,1025" size="100,100">&lt;div class=&quot;dating-profile&quot;&gt;
+</tw-passagedata><tw-passagedata pid="21" name="Let&#39;s do it" tags="" position="400,1025" size="100,100">&lt;div class=&quot;dating-profile&quot;&gt;
 	&lt;div class=&quot;dating-profile-header&quot;&gt;
     	&lt;img src=&quot;./rosie-assets/profile-picture-cropped.jpg&quot; height=&quot;75px&quot;/&gt;
         &lt;b&gt;Annabel Lee&lt;/b&gt; / &lt;i&gt;Libra&lt;/i&gt;
@@ -519,16 +618,123 @@ $dateName peers behind you for a moment to see your drinks arriving. You both th
 &lt;/div&gt;
 
 =&gt;&lt;=
-(button:&quot;=X=&quot;)[[Ask her out]]</tw-passagedata><tw-passagedata pid="23" name="Ask her out" tags="" position="400,1150" size="100,100">=&gt;&lt;=
-|me_message&gt;[Hey Annabel! What’s your [[favourite cocktail bar]]?]
-(display: &quot;me_message_style&quot;)</tw-passagedata><tw-passagedata pid="24" name="me_message_style" tags="" position="75,475" size="100,100">(change: ?me_message, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color: blue) + (corner-radius: 12) + (bg:blue) + (css: &quot;margin-top: 0.2em;&quot;))</tw-passagedata><tw-passagedata pid="25" name="favourite cocktail bar" tags="" position="400,1275" size="100,100">&lt;==
-|them_message&gt;[omg there’s this speakeasy called Florence downtown it’s soo cute]
-|them_message&gt;[we could grab a drink there tmr night?]
-(display: &quot;them_message_style&quot;)
+(button:&quot;=X=&quot;)[[Ask her out]]</tw-passagedata><tw-passagedata pid="22" name="Ask her out" tags="" position="400,1150" size="100,100">==&gt;
+|me_message&gt;[Hey Annabel! What’s your (link-reveal: &quot;favourite cocktail bar?&quot;)[(show:?fav_cocktail_bar_response)]]
+(display: &quot;me_message_style&quot;)
+
+&lt;==
+(hidden:)|fav_cocktail_bar_response&gt;[
+	|them_message&gt;[omg there’s this speakeasy called Florence downtown it’s soo cute]
+	|them_message&gt;[we could grab a drink there (link-reveal: &quot;tmr night?&quot;)[(show: ?tmr_night_response)]]
+	(display: &quot;them_message_style&quot;)
+]
 
 ==&gt;
-|me_message&gt;[I’m down! 9pm?]
-(display: &quot;me_message_style&quot;)</tw-passagedata></tw-storydata>
+(hidden:)|tmr_night_response&gt;[
+	|me_message&gt;[I’m down! (link-reveal: &quot;9pm?&quot;)[(show:  ?confirm_response)]]
+	(display: &quot;me_message_style&quot;)
+]
+
+&lt;==
+(hidden:)|confirm_response&gt;[
+	|them_message&gt;[ [[see you there 😊]]]
+    (display: &quot;them_message_style&quot;)
+]
+</tw-passagedata><tw-passagedata pid="23" name="me_message_style" tags="" position="75,475" size="100,100">(change: ?me_message, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color: blue) + (corner-radius: 12) + (bg:blue) + (css: &quot;margin-top: 0.2em;&quot;))</tw-passagedata><tw-passagedata pid="24" name="see you there 😊" tags="" position="400,1275" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You go about your day...but night can’t come soon enough. You’ve never gotten a date so fast! Your mind keeps wandering back to Annabel...&lt;/p&gt;
+
+=&gt;&lt;=
+(button:&quot;=X=&quot;)[[Talk to Rosie]]
+(button:&quot;=X=&quot;)[[Go to sleep]]</tw-passagedata><tw-passagedata pid="25" name="Talk to Rosie" tags="" position="200,1400" size="100,100">=&gt;&lt;=
+ &lt;!--Use user [name] here?--&gt;
+($speaker: $rosie)
+|rosie-text&gt;[Hey! Congrats on the cute date.]
+(display: &quot;rosie_style&quot;)
+
+(button:&quot;=X=&quot;)[[I&#39;m pretty nervous actually... -&gt; Learn More]]
+(button:&quot;=X=&quot;)[[Yea, she seems nice! -&gt; Learn More]]</tw-passagedata><tw-passagedata pid="26" name="Go to sleep" tags="" position="525,1400" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You fall asleep fitfully, nervous for your date the next day.&lt;/p&gt;
+
+=&gt;&lt;=
+(button:&quot;=X=&quot;)[[Wake up]]</tw-passagedata><tw-passagedata pid="27" name=" Learn More" tags="" position="200,1525" size="100,100">=&gt;&lt;=
+($speaker: $rosie)
+|rosie-text&gt;[I noticed that she didn’t have much info on her profile. Did you want to learn more?]
+(display: &quot;rosie_style&quot;)
+
+(button:&quot;=X=&quot;)[[Yea, why not?]]
+(button:&quot;=X=&quot;)[[No thanks. -&gt;Go to sleep]]</tw-passagedata><tw-passagedata pid="28" name="Yea, why not?" tags="" position="200,1650" size="100,100">&lt;!-- Progress bar code based on this example: https://twinery.org/forum/discussion/4667/progressbar-problems  --&gt;
+=&gt;&lt;=
+($speaker: $rosie)
+|rosie_text&gt;[*Thinking...*](display: &quot;rosie_style&quot;)(mouseover-replace: ?rosie_text)[*Rosie is scraping the web for “Annabel Lee”...*]
+
+|rosie_loading&gt;[&lt;script&gt;progress();&lt;/script&gt;
+&lt;div id=&quot;progress-bar-background&quot;&gt;&lt;div id=&quot;progress-bar&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- Timer code from: https://twinery.org/forum/discussion/6589/how-to-make-a-timer-displaying-more-text-after-x-seconds-preforming-action-after-a-time --&gt;]
+{|rosie_done&gt;[(live: 6s)[{(change: ?rosie_loading, (collapse:))}
+     (button:&quot;=X=&quot;)[[Thanks Rosie! -&gt;Thanks Rosie!]] + 
+	 (button:&quot;=X=&quot;)[[I guess I could’ve stalked her social media myself... -&gt;Thanks Rosie!]]
+     {(replace: ?rosie_text)[Here’s what I found:&lt;br/&gt;
+	She went to Columbia. Wow!&lt;br/&gt;
+	She has two pet rats.&lt;br/&gt;
+	She has posted pictures showing her crocheting and biking.&lt;br/&gt;
+	One of her jobs is in journalism.]
+     {(stop:)}]]}</tw-passagedata><tw-passagedata pid="29" name="Thanks Rosie!" tags="" position="200,1775" size="100,100">=&gt;&lt;=
+($speaker: $rosie)
+|rosie-text&gt;[No problem. Good luck tomorrow!]
+(display: &quot;rosie_style&quot;)
+
+(button:&quot;=X=&quot;)[[Go to sleep]]</tw-passagedata><tw-passagedata pid="30" name="Wake up" tags="" position="525,1525" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You wake up, wear your AR glasses, go to work, same old. The day feels even [[longer than usual]].&lt;/p&gt;</tw-passagedata><tw-passagedata pid="31" name="longer than usual" tags="" position="525,1650" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;Finally, [[9pm rolls around]], and you show up at the bar.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="32" name="9pm rolls around" tags="" position="525,1775" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You look around, but you don’t see Annabel. Your [[phone buzzes]].&lt;/p&gt;</tw-passagedata><tw-passagedata pid="33" name="phone buzzes" tags="" position="525,1900" size="100,100">&lt;==
+|them_message&gt;[im so sorry i’m running a few mins (link-reveal: &quot;late&quot;)[(show: ?get_something_response)]!! be there soon](display: &quot;them_message_style&quot;)
+
+==&gt;
+(hidden:)|get_something_response&gt;[
+	|me_message&gt;[No worries, I can get you (link-reveal: &quot;something&quot;)[(show: ?what_to_order)] :)]
+    (display: &quot;me_message_style&quot;)
+]
+{(hidden:)|what_to_order&gt;[
+&lt;p class=&quot;p-expo&quot;&gt;What should you order for Annabel?&lt;/p&gt;
+&lt;br/&gt;
+=&gt;&lt;=
+(button:&quot;=X=&quot;)[[Ask Rosie]]
+&lt;br/&gt;
+(button:&quot;=X=&quot;)[[Take a guess -&gt;Options]]
+]}
+</tw-passagedata><tw-passagedata pid="34" name="Options" tags="" position="400,2025" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;Your options are: &lt;/p&gt;
+
+&lt;div class=&quot;cocktail-menu&quot;&gt;
+	&lt;h3 class=&quot;cocktail-title&quot;&gt;Florence Cocktail Bar Menu&lt;/h3&gt;
+    &lt;p class=&quot;cocktail-menu-item&quot;&gt;[[Pornstar Martini -&gt;Wrong Cocktail]] - $12.00&lt;/p&gt;
+    &lt;p class=&quot;cocktail-menu-item&quot;&gt;[[Cosmopolitan -&gt;Wrong Cocktail]] - $14.00&lt;/p&gt;
+    &lt;p class=&quot;cocktail-menu-item&quot;&gt;[[Margarita -&gt;Wrong Cocktail]] - $13.00&lt;/p&gt;
+    &lt;p class=&quot;cocktail-menu-item&quot;&gt;[[Singapore Sling -&gt;Correct Cocktail]] - $13.50&lt;/p&gt;
+    &lt;p class=&quot;cocktail-menu-item&quot;&gt;[[Aperol Spritz -&gt;Wrong Cocktail]] - $12.50&lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="Ask Rosie" tags="" position="650,2025" size="100,100">&lt;!-- Progress bar code based on this example: https://twinery.org/forum/discussion/4667/progressbar-problems  --&gt;
+=&gt;&lt;=
+($speaker: $rosie)
+|rosie_text&gt;[*Thinking...*](display: &quot;rosie_style&quot;)(mouseover-replace: ?rosie_text)[*Rosie is scraping Annabel’s Instaglam, Flitter, Facenook, and blog...*]
+
+|rosie_loading&gt;[&lt;script&gt;progress();&lt;/script&gt;
+&lt;div id=&quot;progress-bar-background&quot;&gt;&lt;div id=&quot;progress-bar&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- Timer code from: https://twinery.org/forum/discussion/6589/how-to-make-a-timer-displaying-more-text-after-x-seconds-preforming-action-after-a-time --&gt;]
+{|rosie_done&gt;[(live: 6s)[{(change: ?rosie_loading, (collapse:))}
+     (button:&quot;=X=&quot;)[[Check out the menu -&gt;Options]] + 
+     {(replace: ?rosie_text)[Looks like her favourite cocktail is a Singapore Sling.]
+     {(stop:)}]]}</tw-passagedata><tw-passagedata pid="36" name="Wrong Cocktail" tags="" position="275,2150" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;Annabel arrives. She seems to be a bit [[perplexed]] at your drink choice.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="37" name="Correct Cocktail" tags="" position="400,2150" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;Annabel arrives. She [[grins]] at you.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="38" name="grins" tags="" position="400,2275" size="100,100">=&gt;&lt;=
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;Oh my gosh, how did you know this one’s my favourite? You haven’t been stalking me, have you?&lt;/div&gt;
+
+(button:&quot;=X=&quot;)[[Laugh nervously]]</tw-passagedata><tw-passagedata pid="39" name="Laugh nervously" tags="" position="350,2400" size="100,100">=&gt;&lt;=
+ &lt;!--Use user [name] here?--&gt;
+($speaker: $rosie)
+|rosie-text&gt;[Hey, you seem a bit nervous. 
+
+I can help you figure out how she’s feeling — just so you can get a feel for how the date’s going, if you want.]
+(display: &quot;rosie_style&quot;)
+
+(button:&quot;=X=&quot;)[[Yeah, sure.]]
+(button:&quot;=X=&quot;)[[No thanks.]]</tw-passagedata><tw-passagedata pid="40" name="perplexed" tags="" position="275,2275" size="100,100">=&gt;&lt;=
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;Hey! Oh, this is... interesting.&lt;/div&gt;
+
+(button:&quot;=X=&quot;)[[Laugh nervously]]</tw-passagedata><tw-passagedata pid="41" name="Yeah, sure." tags="" position="250,2525" size="100,100"></tw-passagedata><tw-passagedata pid="42" name="No thanks." tags="" position="425,2525" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
