@@ -66,6 +66,7 @@ p {
 	text-align: center;
 }
 .stat-bar-text {
+  	top: -10px;
 	margin-left: 10px; 
 }
 pre {
@@ -342,257 +343,27 @@ $$$$$$$$$$$$ oo$&quot;$$$$$$&quot;&quot;
    &lt;div class=&quot;titleText&quot;&gt;
     	&lt;img src=&quot;./rosie-assets/rosie-icon.png&quot; height=&quot;100px&quot;/&gt;
 		&lt;p&gt;It&#39;s a cold November morning. Your waking routine is as unremarkable as the grey, cloudy skies: make bed, brush teeth, polish [[AR glasses-&gt;AR glasses]] with a cleaning cloth.&lt;/p&gt;
-    	
 		&lt;p&gt;This game is a project from UWaterloo&#39;s CS492 - The Social Implications of Computing class. For more information and credits, check out the &lt;a href=&quot;https://github.com/CS-492-Final-Project/rosie-if-story&quot;&gt;game&#39;s repository&lt;/a&gt;.&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="2" name="AR glasses" tags="" position="525,525" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;The lenses became smudged last night - it takes some&amp;nbsp;[[rubbing]]&amp;nbsp;to return the glasses back to their pristine condition.&lt;/p&gt;
-</tw-passagedata><tw-passagedata pid="3" name="rubbing" tags="" position="525,650" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;The cleaning cloth makes them sparkle.&lt;/p&gt;
-
-=&gt;&lt;=
-(button:&quot;=X=&quot;)[[Put them on]]</tw-passagedata><tw-passagedata pid="4" name="Glasses On" tags="" position="800,475" size="100,100">&lt;!--&lt;div class=&quot;storyBox&quot;&gt;--&gt;
-&lt;==
-//Notifications: //&lt;br&gt;
-Mail: 14 Unread Emails&lt;br&gt;
-Voicemail: 2 Missed Calls&lt;br&gt;
-[[(Dating App Name)-&gt;Dating App]]: 3 New Matches&lt;br&gt;
-Social Media: 4 New Likes on your Posts&lt;br&gt;
-
-=&gt;&lt;=
-Finally some matches on (Dating App Name)! Let&#39;s see who responded.
-&lt;!--&lt;/div&gt;--&gt;</tw-passagedata><tw-passagedata pid="5" name="Dating App" tags="" position="800,625" size="100,100">(set: _date_names to (a: &quot;Cortana&quot;, &quot;Gemini&quot;, &quot;Bertrand&quot;))
-&lt;==
-You have messages from
-{
-(for: each _name, ..._date_names) [
-      (link: _name) [
-          (set: $dateName to _name)
-          (go-to: &quot;Initial Message&quot;)
-      ]
-      &lt;br&gt;
-    ]
-}
-
-=&gt;&lt;=
-Who do I want to respond to?
-</tw-passagedata><tw-passagedata pid="6" name="Initial Message" tags="" position="925,375" size="100,100">&lt;==
-($speaker: $dateName)
-|message&gt;[Heyyy!!]
-|message&gt;[(Talk about matching)]
-|message&gt;[I know this AMAZING place where we can go 👀]
-|message&gt;[How about tomorrow at 9?]
-
-
-=&gt;&lt;=
-(button:)[(link: &quot;Confirm&quot;)[
-	(show: ?message)
-    (show: ?transition)
-    (display:&quot;message_style&quot;)
-]]
-
-==&gt;
-|message)[That&#39;s perfect! See you then]
-
-|transition)[Now the wait begins. It seems like an eternity though before [[tomorrow at 9-&gt;Date Arrival]].]
-
-(display:&quot;message_style&quot;)</tw-passagedata><tw-passagedata pid="7" name="Date Arrival" tags="" position="925,500" size="100,100">Arriving at (DateSpot), $dateName is nowhere to be found. 5 minutes, 10 minutes go by, when suddenly a small red pop-up catches your attention from the corner of your eye. Looks like a message from [[$dateName-&gt;Late Text]].</tw-passagedata><tw-passagedata pid="8" name="them_message_style" tags="" position="100,100" size="100,100">{(change: ?them_message, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color: #404040) + (corner-radius: 12) + (bg:#404040) + (css: &quot;margin-top: 0.2em;&quot;))}</tw-passagedata><tw-passagedata pid="9" name="Late Text" tags="" position="925,625" size="100,100">&lt;==
-($speaker: $dateName)
-|message&gt;[Hey, running a bit late :(]
-|message&gt;[Can you order something for me if you&#39;re already there?]
-(display:&quot;message_style&quot;)
-
-|response_choices&gt;[
-{
-	(button:&quot;=X=&quot;)[(link: &quot;Sure&quot;)[
-		(hide:?response_choices)
-    	(show: ?sure-resp)
-    	(display:&quot;message_style&quot;)
-  	]]
-  (button: &quot;=X=&quot;)[(link: &quot;I don&#39;t know what you like&quot;)[
-	(hide:?response_choices)
-    (show: ?question-resp)
-    (display:&quot;message_style&quot;)
-  ]]
-}
-]
-
-==&gt;
-{
-|sure-resp)[
-	|message&gt;[Yeah, of course!]
-]
-|question-resp)[
-	|message&gt;[Sure, what should I get you?]
-]
-}
-&lt;==
-{
-|sure-resp)[
-	|message&gt;[Great, thank you so much!]
-]
-|question-resp)[
-	|message&gt;[Suprise me :) but make sure it&#39;s good]
-]
-}
-====&gt;&lt;====
-{
-|sure-resp)[Now, to [[figure out what to get-&gt;Drink Order]].]
-|question-resp)[Hmm, that&#39;s not very helpful, but let&#39;s [[figure out what to get-&gt;Drink Order]].]
-}</tw-passagedata><tw-passagedata pid="10" name="Drink Order" tags="" position="925,750" size="100,100">{(set: $ordered_drink to 0) (set: $drinks to (a: &quot;D1&quot;, &quot;D2&quot;, &quot;D3&quot;, &quot;D4&quot;))
-(set: $disliked_drink to $drinks&#39;s 3rd) (set: $liked_drink to $drinks&#39;s 1st)
-(set: $accepted_drink_help to false)
-}
-Walking up to the bar, you notice that it&#39;s still rather empty. The bartender asks for your order, and you get your favourite drink. Now to see what $dateName would like.
-
-
-=&gt;&lt;=
-Luckily, there doesn&#39;t seem to be too many options.
-{
-|drink-opts&gt;[
-	(for: each _drink, ...$drinks) [
-      (button: &quot;=X=&quot;)[(link: _drink)[
-          (hide: ?drink-opts)
-          (hide: ?rosie-text)
-          (set: $ordered_drink to _drink)
-          (go-to: &quot;Drink Ordered&quot;)
-      ]]
-    ]
-]
-}
-==&gt;
-($speaker: $rosie)
-
-|rosie-prompt&gt;[
-    |rosie-text&gt;[Looks like $dateName has been to this bar before.&lt;br&gt; They might have pictures they posted from here on social media.&lt;br&gt;Do you want me to take a look and see what drink they had before?]
-]
-|accept-rosie&gt;[
-    (button:&quot;==X&quot;)[(link: &quot;Yes, thanks Rosie&quot;)[
-    	(set: $ai_accepted to it + 1)
-        (set: $accepted_drink_help to true)
-        (hide:?accept-rosie)
-        (show:?rosie-prompt)
-        (display: &quot;rosie-response&quot;)
-    ]]]
-|rosie-prompt)[
-	|rosie-response&gt;[The first time $dateName went they got a $disliked_drink.&lt;br&gt;It seems like they didn&#39;t like it too much writing:&lt;br&gt;&quot;Great night, but the drink wasn&#39;t worth it.&quot;]
-    |rosie-response&gt;[Next time they got a $liked_drink, which looks like was a better fit.]
-    |rosie-response&gt;[Hope that helps!]
-]
-
-(display: &quot;rosie_style&quot;)</tw-passagedata><tw-passagedata pid="11" name="rosie_style" tags="" position="100,350" size="100,100">(change: ?rosie-text, (border: &quot;dotted&quot;) + (border-size: 4)+ (border-color: &quot;#c84976&quot;) + (corner-radius: 6) + (css: &quot;margin-top: 0.2em; color: #c84976;&quot;))</tw-passagedata><tw-passagedata pid="12" name="Drink Ordered" tags="" position="1100,375" size="100,100">You end up getting a $ordered_drink for $dateName. As you go to sit down at a table you finally see them sliding through the entrance. Their eyes scan the room until they finally spot you, their face opening up into a smile as you come into view.
-
-$dateName comes over and [[greets you-&gt;Greeting]].</tw-passagedata><tw-passagedata pid="13" name="Greeting" tags="" position="1100,500" size="100,100">{
-  (set: _activities to (a: &quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A4&quot;))
-  (set: _hidden_activity to &quot;A5&quot;)
-  (set: $datePreferredActivity to _hidden_activity)
-  (set: $conversionPerf = &quot;going well&quot;)
-}
-
-&lt;==
-($speaker: $dateName)
-(Introduction)
-
-&lt;!--Possibly consider doing multiple actions here like hug/handshake, etc.--&gt;
-
-=&gt;&lt;=
-$dateName leads you to their favourite table situated in a quiet, private corner in the room.
-
-&lt;==
-($speaker: $dateName)
-Thanks for ordering something for me.
-(Starts talking about things?)
-
-I&#39;d love to know, what&#39;s been your favourite way to pass the time lately?
-
-==&gt;
-($speaker: $rosie)
-|rosie-text&gt;[$dateName&#39;s profile seemed kind of empty when I saw it.
-It&#39;ll probably be better if you have something in common.
-Should I find out what $dateName likes to do?
-]
-
-|accept-rosie&gt;[
-    (button:&quot;==X&quot;)[(link: &quot;Yes, thanks Rosie&quot;)[
-    	(set: $ai_accepted to it + 1)
-        (set: $accepted_drink_help to true)
-        (hide:?accept-rosie)
-        (show:?rosie-prompt)
-        (display: &quot;rosie-response&quot;)
-    ]]
-]
-
-|rosie-prompt)[
-	|rosie-response&gt;[
-    	(They like )
-    ]
-    (show: ?hidden-act)
-]
-
-{
-|activity-opts&gt;[
-	(for: each _act, ..._activities) [
-      (button: &quot;=X=&quot;)[(link: _act)[
-          (hide: ?activity-opts)
-          (hide: ?hidden-act)
-          (hide:?accept-rosie)
-          (set: $chosen_activity to _act)
-          (show: ?act-result)
-      ]]
-    ]
-]
-|hidden-act)[
-	(button: &quot;=X=&quot;)[(link: _hidden_activity)[
-          (hide: ?activity-opts)
-          (hide: ?hidden-act)
-          (hide:?accept-rosie)
-          (set: $chosen_activity to _hidden_activity)
-          (show: ?act-result)
-      ]]
-]
-}
-
-&lt;==
-|act-result)[
-	($speaker: $dateName)
-    {
-	(if: $chosen_activity is _activities&#39;s 2 or _activities&#39;s 4)[
-    	Bad Result
-        (set: $conversionPerf = &quot;not going well&quot;)
-        (set: $rizz to it - 1)
-    ]
-    (else-if: $chosen_activity is _activities&#39;s 1 or _activities&#39;s 3)[
-    	Ok Result
-        (set: $rizz to it + 1)
-    ]
-    (else-if: $chosen_activity is _hidden_activity)[
-    	Great Result
-        (set: $conversionPerf = &quot;going great&quot;)
-        (set: $rizz to it + 2)
-    ]
-    }
-    =&gt;&lt;=
-    It seems the conversation is $conversionPerf.
-    [[Continue-&gt;Got Drinks]]
-]
-
-
-(display: &quot;rosie_style&quot;)
-</tw-passagedata><tw-passagedata pid="14" name="stats-bars" tags="header" position="175,475" size="100,100">{(if: $show_stats is true)[
+</tw-passagedata><tw-passagedata pid="2" name="AR glasses" tags="" position="525,525" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;The lenses became smudged last night - it takes some&amp;nbsp;[[rubbing]]&amp;nbsp;to return the glasses back to their pristine condition.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="3" name="rubbing" tags="" position="525,650" size="100,100">=&gt;&lt;=
+&lt;p class=&quot;p-expo&quot;&gt;The cleaning cloth makes them sparkle.&lt;/p&gt;
+(button:&quot;=X=&quot;)[[Put them on]]</tw-passagedata><tw-passagedata pid="4" name="them_message_style" tags="" position="100,100" size="100,100">{(change: ?them_message, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color: #404040) + (corner-radius: 12) + (bg:#404040) + (css: &quot;margin-top: 0.2em;&quot;))}</tw-passagedata><tw-passagedata pid="5" name="rosie_style" tags="" position="100,350" size="100,100">(change: ?rosie-text, (border: &quot;dotted&quot;) + (border-size: 4)+ (border-color: &quot;#c84976&quot;) + (corner-radius: 6) + (css: &quot;margin-top: 0.2em; color: #c84976;&quot;))</tw-passagedata><tw-passagedata pid="6" name="stats-bars" tags="header" position="175,475" size="100,100">{(if: $show_stats is true)[
 	&lt;==
     &lt;div class=&quot;rosie-stat-panel&quot;&gt;
     	&lt;div class=&quot;rosie-recording&quot;&gt;
-            	&lt;img src=&quot;./rosie-assets/rosie-icon.png&quot; height=&quot;50px&quot;/&gt;
-                &lt;p style=&quot;font-size: 25px&quot;&gt;is recording&lt;/p&gt;
+            	&lt;img src=&quot;./rosie-assets/rosie-icon.png&quot; height=&quot;30px&quot;/&gt;
+                &lt;p style=&quot;font-size: 20px&quot;&gt;is recording&lt;/p&gt;
     			&lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
         &lt;/div&gt;
         |meter_content&gt;[(meter: bind $rizz, 10, &quot;X&quot;, &quot;💙&quot;, #c84976)]
-        &lt;p class=&quot;stat-bar-text&quot; style=&quot;font-size: 20px&quot;&gt;|rizz_part&gt;[$rizz_percent]% chance of a second date&lt;/p&gt;
+        &lt;p class=&quot;stat-bar-text&quot; style=&quot;font-size: 15px&quot;&gt;|rizz_part&gt;[$rizz_percent]% chance of a second date&lt;/p&gt;
         &lt;br /&gt;
         |meter_content&gt;[(meter: bind $ai_suspicion, 10, &quot;X&quot;, &quot;🤨&quot;, #404040)]
-        &lt;p class=&quot;stat-bar-text&quot; style=&quot;font-size: 20px&quot;&gt;|sus_part&gt;[$sus_percent]% chance she thinks you&#39;re using Rosie&lt;/p&gt;
+        &lt;p class=&quot;stat-bar-text&quot; style=&quot;font-size: 15px&quot;&gt;|sus_part&gt;[$sus_percent]% chance she thinks you&#39;re using Rosie&lt;/p&gt;
     &lt;/div&gt;
-](display: &quot;meter_style&quot;)}</tw-passagedata><tw-passagedata pid="15" name="init" tags="startup" position="525,250" size="100,100">{
+](display: &quot;meter_style&quot;)}</tw-passagedata><tw-passagedata pid="7" name="init" tags="startup" position="525,250" size="100,100">{
 &lt;!-- speaker variables: --&gt;
 (set:  $speaker to (macro: str-type _name, [(output:)+(text-color:black)+(text-style: &quot;italic&quot;)[_name:]]))
 (set: $rosie to &quot;Rosie&quot;)
@@ -608,89 +379,16 @@ Should I find out what $dateName likes to do?
 (set: $ai_accepted to 0)
 (set: $dateName to &quot;DATE-NAME&quot;)
 }
-</tw-passagedata><tw-passagedata pid="16" name="Got Drinks" tags="" position="1100,625" size="100,100">(set: _was_drink_correct to ($ordered_drink is $liked_drink))
-(set: _was_drink_bad to ($ordered_drink is $disliked_drink))
-(set: $accepted_drink_help to true)
-=&gt;&lt;=
-$dateName peers behind you for a moment to see your drinks arriving. You both thank the bartender and take a sip.
-
-&lt;==
-($speaker: $dateName)
-{
-	(if: _was_drink_correct)[
-    	This is incredible, how did you know $liked_drink is my favourite?
-        (set: $rizz to it + 1)
-    ]
-    (else-if: _was_drink_bad)[
-    	Hmm, I&#39;m not that much of a fan of this one.
-        (set: $rizz to it - 1)
-    ]
-    (else:)[I kind of like this drink, thanks for getting it for me.]
-}
-
-&lt;!--Player choice as to how to respond.--&gt;
-{
-=&gt;&lt;=
-(if: _was_drink_correct)[
-	(button:)[(link: &quot;Just a lucky guess.&quot;)[]]
-    (if: $accepted_drink_help)[
-    	(color: red) + (text-style:&quot;bold&quot;)[
-          (button:)[(link: &quot;I got help from Rosie&quot;, (action: &quot;mouseover&quot;))[
-              (show: ?rosie-warning)
-              (display: &quot;rosie_style&quot;)
-          ]]
-        ]
-    ]
-]
-(else-if: _was_drink_bad)[
-
-]
-(else:)[
-]
-}
-==&gt;
-|rosie-warning)[
-    ($speaker: $rosie)
-    |rosie-text&gt;[Are you sure you want to reveal that I helped you?
-    $dateName might not understand.]
-]
-
-[[Continue-&gt;Stats]]
-</tw-passagedata><tw-passagedata pid="17" name="Stats" tags="" position="1100,750" size="100,100">==&gt;
-|rosie-stats&gt;[
-    ($speaker: $rosie)
-    |rosie-text&gt;[Hey, are you wondering how well the date is going?
-    If you want I can analyze $dateName&#39;s reactions for you.]
-]
-
-
-|accept-rosie&gt;[
-    (button:&quot;==X&quot;)[(link: &quot;Yes, thanks Rosie&quot;)[
-    	(set: $ai_accepted to it + 1)
-        (set: $show_stats to true)
-        (hide:?accept-rosie)
-        (show:?rosie-prompt)
-        (display: &quot;rosie-response&quot;)
-    ]]]
-    
-    
-|rosie-prompt)[
-	|rosie-response&gt;[Great, I&#39;ll let you know what it seems that their feeling from now on.]
-]
-
-[[Continue-&gt;Sample]]
-
-(display: &quot;rosie_style&quot;)</tw-passagedata><tw-passagedata pid="18" name="Sample" tags="" position="1100,875" size="100,100">Some sample text to see the stats.</tw-passagedata><tw-passagedata pid="19" name="Put them on" tags="" position="400,775" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You put on the glasses. Rosie, your dear virtual assistant, is waiting for you.&lt;/p&gt;
-
-=&gt;&lt;=
-(button:&quot;=X=&quot;)[[Check my notifications]]</tw-passagedata><tw-passagedata pid="20" name="Check my notifications" tags="" position="400,900" size="100,100">=&gt;&lt;=
+</tw-passagedata><tw-passagedata pid="8" name="Put them on" tags="" position="400,775" size="100,100">=&gt;&lt;=
+&lt;p class=&quot;p-expo&quot;&gt;You put on the glasses. Rosie, your dear virtual assistant, is waiting for you.&lt;/p&gt;
+(button:&quot;=X=&quot;)[[Check my notifications]]</tw-passagedata><tw-passagedata pid="9" name="Check my notifications" tags="" position="400,900" size="100,100">=&gt;&lt;=
  &lt;!--Save user [name] here?--&gt;
 ($speaker: $rosie)
-|rosie-text&gt;[Hi there! You’ve got a new match on Beehive. Wanna check them out?]
-(display: &quot;rosie_style&quot;)
+|rosie-text&gt;[Hi there! You’ve got a new match on Beehive. Wanna check them out?](display: &quot;rosie_style&quot;)
 
 (button:&quot;=X=&quot;)[[Let&#39;s do it]]
-</tw-passagedata><tw-passagedata pid="21" name="Let&#39;s do it" tags="" position="400,1025" size="100,100">&lt;div class=&quot;dating-profile&quot;&gt;
+</tw-passagedata><tw-passagedata pid="10" name="Let&#39;s do it" tags="" position="400,1025" size="100,100">=&gt;&lt;=
+&lt;div class=&quot;dating-profile&quot;&gt;
 	&lt;div class=&quot;dating-profile-header&quot;&gt;
     	&lt;img src=&quot;./rosie-assets/profile-picture-cropped.jpg&quot; height=&quot;75px&quot;/&gt;
         &lt;b&gt;Annabel Lee&lt;/b&gt; / &lt;i&gt;Libra&lt;/i&gt;
@@ -699,9 +397,7 @@ $dateName peers behind you for a moment to see your drinks arriving. You both th
         busy bee with two jobs! art lover, snowbird, obsessed with cocktails and italian food. big cuddler. always giggling!!
     &lt;/div&gt;
 &lt;/div&gt;
-
-=&gt;&lt;=
-(button:&quot;=X=&quot;)[[Ask her out]]</tw-passagedata><tw-passagedata pid="22" name="Ask her out" tags="" position="400,1150" size="100,100">==&gt;
+(button:&quot;=X=&quot;)[[Ask her out]]</tw-passagedata><tw-passagedata pid="11" name="Ask her out" tags="" position="400,1150" size="100,100">==&gt;
 |me_message&gt;[Hey Annabel! What’s your (link-reveal: &quot;favourite cocktail bar?&quot;)[(show:?fav_cocktail_bar_response)]](display: &quot;me_message_style&quot;)
 &lt;==
 (hidden:)|fav_cocktail_bar_response&gt;[
@@ -717,28 +413,23 @@ $dateName peers behind you for a moment to see your drinks arriving. You both th
 (hidden:)|confirm_response&gt;[
 	|them_message_1&gt;[ [[see you there :)]]]
     (display: &quot;them_message_style_1&quot;)
-]
-</tw-passagedata><tw-passagedata pid="23" name="me_message_style" tags="" position="100,225" size="100,100">{(change: ?me_message, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color: blue) + (corner-radius: 12) + (bg:blue) + (css: &quot;margin-top: 0.2em&quot;))}</tw-passagedata><tw-passagedata pid="24" name="see you there :)" tags="" position="400,1275" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You go about your day...but night can’t come soon enough. You’ve never gotten a date so fast! Your mind keeps wandering back to Annabel...&lt;/p&gt;
-
-=&gt;&lt;=
+]</tw-passagedata><tw-passagedata pid="12" name="me_message_style" tags="" position="100,225" size="100,100">{(change: ?me_message, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color: blue) + (corner-radius: 12) + (bg:blue) + (css: &quot;margin-top: 0.2em&quot;))}</tw-passagedata><tw-passagedata pid="13" name="see you there :)" tags="" position="400,1275" size="100,100">=&gt;&lt;=
+&lt;p class=&quot;p-expo&quot;&gt;You go about your day...but night can’t come soon enough. You’ve never gotten a date so fast! Your mind keeps wandering back to Annabel...&lt;/p&gt;
 (button:&quot;=X=&quot;)[[Talk to Rosie]]
-(button:&quot;=X=&quot;)[[Go to sleep]]</tw-passagedata><tw-passagedata pid="25" name="Talk to Rosie" tags="" position="200,1400" size="100,100">=&gt;&lt;=
+(button:&quot;=X=&quot;)[[Go to sleep]]</tw-passagedata><tw-passagedata pid="14" name="Talk to Rosie" tags="" position="200,1400" size="100,100">=&gt;&lt;=
  &lt;!--Use user [name] here?--&gt;
 ($speaker: $rosie)
-|rosie-text&gt;[Hey! Congrats on the cute date.]
-(display: &quot;rosie_style&quot;)
+|rosie-text&gt;[Hey! Congrats on the cute date.](display: &quot;rosie_style&quot;)
 
 (button:&quot;=X=&quot;)[[I&#39;m pretty nervous actually... -&gt; Learn More]]
-(button:&quot;=X=&quot;)[[Yea, she seems nice! -&gt; Learn More]]</tw-passagedata><tw-passagedata pid="26" name="Go to sleep" tags="" position="525,1400" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You fall asleep fitfully, nervous for your date the next day.&lt;/p&gt;
-
-=&gt;&lt;=
-(button:&quot;=X=&quot;)[[Wake up]]</tw-passagedata><tw-passagedata pid="27" name=" Learn More" tags="" position="200,1525" size="100,100">=&gt;&lt;=
+(button:&quot;=X=&quot;)[[Yea, she seems nice! -&gt; Learn More]]</tw-passagedata><tw-passagedata pid="15" name="Go to sleep" tags="" position="525,1400" size="100,100">=&gt;&lt;=
+&lt;p class=&quot;p-expo&quot;&gt;You fall asleep fitfully, nervous for your date the next day.&lt;/p&gt;
+(button:&quot;=X=&quot;)[[Wake up]]</tw-passagedata><tw-passagedata pid="16" name=" Learn More" tags="" position="200,1525" size="100,100">=&gt;&lt;=
 ($speaker: $rosie)
-|rosie-text&gt;[I noticed that she didn’t have much info on her profile. Did you want to learn more?]
-(display: &quot;rosie_style&quot;)
+|rosie-text&gt;[I noticed that she didn’t have much info on her profile. Did you want to learn more?](display: &quot;rosie_style&quot;)
 
 (button:&quot;=X=&quot;)[[Yea, why not?]]
-(button:&quot;=X=&quot;)[[No thanks. -&gt;Go to sleep]]</tw-passagedata><tw-passagedata pid="28" name="Yea, why not?" tags="" position="200,1650" size="100,100">&lt;!-- Progress bar code based on this example: https://twinery.org/forum/discussion/4667/progressbar-problems  --&gt;
+(button:&quot;=X=&quot;)[[No thanks. -&gt;Go to sleep]]</tw-passagedata><tw-passagedata pid="17" name="Yea, why not?" tags="" position="200,1650" size="100,100">&lt;!-- Progress bar code based on this example: https://twinery.org/forum/discussion/4667/progressbar-problems  --&gt;
 =&gt;&lt;=
 ($speaker: $rosie)
 |rosie_text&gt;[*Thinking...*](display: &quot;rosie_style&quot;)(mouseover-replace: ?rosie_text)[*Rosie is scraping the web for “Annabel Lee”...*]
@@ -753,21 +444,17 @@ $dateName peers behind you for a moment to see your drinks arriving. You both th
 	She went to Columbia. Wow!&lt;br/&gt;
 	She has two pet rats.&lt;br/&gt;
 	She has posted pictures showing her crocheting and biking.&lt;br/&gt;
-	One of her jobs is in journalism.]
+	One of her jobs is in journalism.](mouseover-replace: ?rosie_text)[*Rosie has scraped the web for &quot;Annabel Lee&quot;.*]
      {(stop:)}]]
-    (set: $did_prescreen to true)}</tw-passagedata><tw-passagedata pid="29" name="Thanks Rosie!" tags="" position="200,1775" size="100,100">=&gt;&lt;=
+    (set: $did_prescreen to true)}</tw-passagedata><tw-passagedata pid="18" name="Thanks Rosie!" tags="" position="200,1775" size="100,100">=&gt;&lt;=
 ($speaker: $rosie)
-|rosie-text&gt;[No problem. Good luck tomorrow!]
-(display: &quot;rosie_style&quot;)
+|rosie-text&gt;[No problem. Good luck tomorrow!](display: &quot;rosie_style&quot;)
 
-(button:&quot;=X=&quot;)[[Go to sleep]]</tw-passagedata><tw-passagedata pid="30" name="Wake up" tags="" position="525,1525" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You wake up, wear your AR glasses, go to work, same old. The day feels even [[longer than usual]].&lt;/p&gt;</tw-passagedata><tw-passagedata pid="31" name="longer than usual" tags="" position="525,1650" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;Finally, [[9pm rolls around]], and you show up at the bar.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="32" name="9pm rolls around" tags="" position="525,1775" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You look around, but you don’t see Annabel. Your [[phone buzzes]].&lt;/p&gt;</tw-passagedata><tw-passagedata pid="33" name="phone buzzes" tags="" position="525,1900" size="100,100">&lt;==
+(button:&quot;=X=&quot;)[[Go to sleep]]</tw-passagedata><tw-passagedata pid="19" name="Wake up" tags="" position="525,1525" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You wake up, wear your AR glasses, go to work, same old. The day feels even [[longer than usual]].&lt;/p&gt;</tw-passagedata><tw-passagedata pid="20" name="longer than usual" tags="" position="525,1650" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;Finally, [[9pm rolls around]], and you show up at the bar.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="21" name="9pm rolls around" tags="" position="525,1775" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You look around, but you don’t see Annabel. Your [[phone buzzes]].&lt;/p&gt;</tw-passagedata><tw-passagedata pid="22" name="phone buzzes" tags="" position="525,1900" size="100,100">&lt;==
 |them_message&gt;[im so sorry i’m running a few mins (link-reveal: &quot;late&quot;)[(show: ?get_something_response)]!! be there soon](display: &quot;them_message_style&quot;)
-
 ==&gt;
 (hidden:)|get_something_response&gt;[
-	|me_message&gt;[No worries, I can get you (link-reveal: &quot;something&quot;)[(show: ?what_to_order)] :)]
-    (display: &quot;me_message_style&quot;)
-]
+	|me_message&gt;[No worries, I can get you (link-reveal: &quot;something&quot;)[(show: ?what_to_order)] :)](display: &quot;me_message_style&quot;)]
 {(hidden:)|what_to_order&gt;[
 &lt;p class=&quot;p-expo&quot;&gt;What should you order for Annabel?&lt;/p&gt;
 &lt;br/&gt;
@@ -776,7 +463,7 @@ $dateName peers behind you for a moment to see your drinks arriving. You both th
 &lt;br/&gt;
 (button:&quot;=X=&quot;)[[Take a guess -&gt;Options]]
 ]}
-</tw-passagedata><tw-passagedata pid="34" name="Options" tags="" position="400,2025" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;Your options are: &lt;/p&gt;
+</tw-passagedata><tw-passagedata pid="23" name="Options" tags="" position="400,2025" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;Your options are: &lt;/p&gt;
 
 &lt;div class=&quot;cocktail-menu&quot;&gt;
 	&lt;h3 class=&quot;cocktail-title&quot;&gt;Florence Cocktail Bar Menu&lt;/h3&gt;
@@ -785,7 +472,7 @@ $dateName peers behind you for a moment to see your drinks arriving. You both th
     &lt;p class=&quot;cocktail-menu-item&quot;&gt;[[Margarita -&gt;Wrong Cocktail]] - $13.00&lt;/p&gt;
     &lt;p class=&quot;cocktail-menu-item&quot;&gt;[[Singapore Sling -&gt;Correct Cocktail]] - $13.50&lt;/p&gt;
     &lt;p class=&quot;cocktail-menu-item&quot;&gt;[[Aperol Spritz -&gt;Wrong Cocktail]] - $12.50&lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="Ask Rosie" tags="" position="650,2025" size="100,100">&lt;!-- Progress bar code based on this example: https://twinery.org/forum/discussion/4667/progressbar-problems  --&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Ask Rosie" tags="" position="650,2025" size="100,100">&lt;!-- Progress bar code based on this example: https://twinery.org/forum/discussion/4667/progressbar-problems  --&gt;
 =&gt;&lt;=
 ($speaker: $rosie)
 |rosie_text&gt;[*Thinking...*](display: &quot;rosie_style&quot;)(mouseover-replace: ?rosie_text)[*Rosie is scraping Annabel’s Instaglam, Flitter, Facenook, and blog...*]
@@ -795,62 +482,61 @@ $dateName peers behind you for a moment to see your drinks arriving. You both th
 &lt;!-- Timer code from: https://twinery.org/forum/discussion/6589/how-to-make-a-timer-displaying-more-text-after-x-seconds-preforming-action-after-a-time --&gt;]
 {|rosie_done&gt;[(live: 6s)[{(change: ?rosie_loading, (collapse:))}
      (button:&quot;=X=&quot;)[[Check out the menu -&gt;Options]] + 
-     {(replace: ?rosie_text)[Looks like her favourite cocktail is a Singapore Sling.]
-     {(stop:)}]]}</tw-passagedata><tw-passagedata pid="36" name="Wrong Cocktail" tags="" position="275,2150" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;Annabel arrives. She seems to be a bit [[perplexed]] at your drink choice.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="37" name="Correct Cocktail" tags="" position="400,2150" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;Annabel arrives. She [[grins]] at you.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="38" name="grins" tags="" position="400,2275" size="100,100">=&gt;&lt;=
+     {(replace: ?rosie_text)[Looks like her favourite cocktail is a Singapore Sling.](mouseover-replace: ?rosie_text)[*Rosie has scraped Annabel’s Instaglam, Flitter, Facenook, and blog.*]
+     {(stop:)}]]}</tw-passagedata><tw-passagedata pid="25" name="Wrong Cocktail" tags="" position="275,2150" size="100,100">&lt;!-- Option: Wrong Cocktail variable changes: --&gt;
+{(set: $rizz to it - 1)
+(set: $rizz_percent to (min: ($rizz/10) * 100, 100))
+(replace: ?rizz_part)[$rizz_percent]}
+&lt;p class=&quot;p-expo&quot;&gt;Annabel arrives. She seems to be a bit [[perplexed]] at your drink choice.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="26" name="Correct Cocktail" tags="" position="400,2150" size="100,100">&lt;!-- Option: Correct Cocktail variable changes: --&gt;
+{(set: $rizz to it + 1)
+(set: $rizz_percent to (min: ($rizz/10) * 100, 100))
+(replace: ?rizz_part)[$rizz_percent]}
+&lt;p class=&quot;p-expo&quot;&gt;Annabel arrives. She [[grins]] at you.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="27" name="grins" tags="" position="400,2275" size="100,100">=&gt;&lt;=
 ($speaker: $annabel)
 &lt;div class=&quot;speech-bubble&quot;&gt;Oh my gosh, how did you know this one’s my favourite? You haven’t been stalking me, have you?&lt;/div&gt;
 
-(button:&quot;=X=&quot;)[[Laugh nervously.-&gt;AskAboutStats]]</tw-passagedata><tw-passagedata pid="39" name="AskAboutStats" tags="" position="350,2400" size="100,100">=&gt;&lt;=
+(button:&quot;=X=&quot;)[[Laugh nervously.-&gt;AskAboutStats]]</tw-passagedata><tw-passagedata pid="28" name="AskAboutStats" tags="" position="350,2400" size="100,100">=&gt;&lt;=
  &lt;!--Use user [name] here?--&gt;
 ($speaker: $rosie)
 |rosie-text&gt;[Hey, you seem a bit nervous. 
 
-I can help you figure out how she’s feeling — just so you can get a feel for how the date’s going, if you want.]
-(display: &quot;rosie_style&quot;)
+I can help you figure out how she’s feeling — just so you can get a feel for how the date’s going, if you want.](display: &quot;rosie_style&quot;)
 
 (button:&quot;=X=&quot;)[[Yeah, sure.-&gt;AcceptStats]]
-(button:&quot;=X=&quot;)[[No thanks.-&gt;RejectStats]]</tw-passagedata><tw-passagedata pid="40" name="perplexed" tags="" position="275,2275" size="100,100">=&gt;&lt;=
+(button:&quot;=X=&quot;)[[No thanks.-&gt;RejectStats]]</tw-passagedata><tw-passagedata pid="29" name="perplexed" tags="" position="275,2275" size="100,100">=&gt;&lt;=
 ($speaker: $annabel)
 &lt;div class=&quot;speech-bubble&quot;&gt;Hey! Oh, this is... interesting.&lt;/div&gt;
 
-(button:&quot;=X=&quot;)[[Laugh nervously.-&gt;AskAboutStats]]</tw-passagedata><tw-passagedata pid="41" name="AcceptStats" tags="" position="150,2575" size="100,100">{(set: $show_stats to true)}
+(button:&quot;=X=&quot;)[[Laugh nervously.-&gt;AskAboutStats]]</tw-passagedata><tw-passagedata pid="30" name="AcceptStats" tags="" position="150,2575" size="100,100">{(set: $show_stats to true)}
 =&gt;&lt;=
 ($speaker: $rosie)
-|rosie-text&gt;[Great! I’ll analyse her microexpressions so you can see how you’re doing.]
-(display: &quot;rosie_style&quot;)
+|rosie-text&gt;[Great! I’ll analyse her microexpressions so you can see how you’re doing.](display: &quot;rosie_style&quot;)
 
-(button:&quot;=X=&quot;)[[Great, this is going to help a lot.-&gt;MusicTaste]]</tw-passagedata><tw-passagedata pid="42" name="RejectStats" tags="" position="425,2575" size="100,100">=&gt;&lt;=
+(button:&quot;=X=&quot;)[[Great, this is going to help a lot.-&gt;MusicTaste]]</tw-passagedata><tw-passagedata pid="31" name="RejectStats" tags="" position="425,2575" size="100,100">=&gt;&lt;=
 ($speaker: $rosie)
-|rosie-text&gt;[Are you sure?]
-(display: &quot;rosie_style&quot;)
+|rosie-text&gt;[Are you sure?](display: &quot;rosie_style&quot;)
 
 (button:&quot;=X=&quot;)[[Ah, why not.-&gt;AcceptStats]]
-(button:&quot;=X=&quot;)[[Yeah, I&#39;m sure.-&gt;RejectStatsConfirmed]]</tw-passagedata><tw-passagedata pid="43" name="RejectStatsConfirmed" tags="" position="425,2700" size="100,100">=&gt;&lt;=
+(button:&quot;=X=&quot;)[[Yeah, I&#39;m sure.-&gt;RejectStatsConfirmed]]</tw-passagedata><tw-passagedata pid="32" name="RejectStatsConfirmed" tags="" position="425,2700" size="100,100">=&gt;&lt;=
  &lt;!--Use user [name] here?--&gt;
 ($speaker: $rosie)
-|rosie-text&gt;[Alright, you&#39;re on your own then.]
-(display: &quot;rosie_style&quot;)
+|rosie-text&gt;[Alright, you&#39;re on your own then.](display: &quot;rosie_style&quot;)
 
-(button:&quot;=X=&quot;)[[Look back to $annabel.-&gt;MusicTaste]]</tw-passagedata><tw-passagedata pid="44" name="MusicTaste" tags="" position="200,2800" size="100,100">=&gt;&lt;=
-(set: $did_prescreen to true)
+(button:&quot;=X=&quot;)[[Look back to $annabel.-&gt;MusicTaste]]</tw-passagedata><tw-passagedata pid="33" name="MusicTaste" tags="" position="250,2800" size="100,100">=&gt;&lt;=
 ($speaker: $annabel)
 &lt;div class=&quot;speech-bubble&quot;&gt;So...&lt;/div&gt;
-{
-&lt;p class=&quot;p-expo&quot;&gt;
+{&lt;p class=&quot;p-expo&quot;&gt;
 	(if: $rizz &gt; 4)[$annabel looks at you with a discerning eye.]
 	(else: )[You see $annabel twiddling her thumbs.]
-&lt;/p&gt;
-}
-($speaker: $annabel)
+&lt;/p&gt;}
 &lt;div class=&quot;speech-bubble&quot;&gt;What kind of music do you listen to?&lt;/div&gt;
 
 ($speaker: $rosie)
-|rosie-text&gt;[Your interest in dubstep is uncommon; it&#39;s hard to know if she&#39;ll like it. (if: $did_prescreen is true)[Consider talking about indie rock. It seemed liked Annabel enjoyed that genre when I looked online before.]]
+|rosie-text&gt;[Your interest in dubstep is uncommon; it&#39;s hard to know if she&#39;ll like it. (if: $did_prescreen is true)[Consider talking about indie rock. It seemed liked Annabel enjoyed that genre when I looked online before.]](display: &quot;rosie_style&quot;)
 
 (button:&quot;=X=&quot;)[[I listen to a lot of dubstep.-&gt;Dubstep]]
 (button:&quot;=X=&quot;)[[I really like indie rock.-&gt;IndieRock]]
-(display: &quot;rosie_style&quot;)
-</tw-passagedata><tw-passagedata pid="45" name="DATING APP NOTIF" tags="" position="300,900" size="100,100"></tw-passagedata><tw-passagedata pid="46" name="CHECK BEFORE DATE" tags="" position="300,1275" size="100,100"></tw-passagedata><tw-passagedata pid="47" name="ROSIE GETS FAVOURITE DRINK" tags="" position="750,2025" size="100,100"></tw-passagedata><tw-passagedata pid="48" name="ROSIE ANALYZES EXPRESSIONS" tags="" position="250,2400" size="100,100"></tw-passagedata><tw-passagedata pid="49" name="Dubstep" tags="" position="100,2925" size="100,100">&lt;!-- Option: Dubstep variable changes: --&gt;
+</tw-passagedata><tw-passagedata pid="34" name="DATING APP NOTIF" tags="" position="300,900" size="100,100"></tw-passagedata><tw-passagedata pid="35" name="CHECK BEFORE DATE" tags="" position="300,1275" size="100,100"></tw-passagedata><tw-passagedata pid="36" name="ROSIE GETS FAVOURITE DRINK" tags="" position="750,2025" size="100,100"></tw-passagedata><tw-passagedata pid="37" name="ROSIE ANALYZES EXPRESSIONS" tags="" position="250,2400" size="100,100"></tw-passagedata><tw-passagedata pid="38" name="Dubstep" tags="" position="100,2900" size="100,100">&lt;!-- Option: Dubstep variable changes: --&gt;
 {(set: $ai_suspicion to it - 2)
 (set: $sus_percent to (min: ($ai_suspicion/10) * 100, 100))
 (set: $rizz to it - 1)
@@ -865,10 +551,9 @@ I can help you figure out how she’s feeling — just so you can get a feel for
 $annabel raises an eyebrow for a moment out of instinct, before quickly relaxing her face.
 &lt;/p&gt;
 }
-($speaker: $annabel)
 &lt;div class=&quot;speech-bubble&quot;&gt;Hey, I respect it though.&lt;/div&gt;
 
-(button:&quot;X&quot;)[[I know it’s not something that everybody enjoys, but I personally love it.-&gt;ClimateStart]]</tw-passagedata><tw-passagedata pid="50" name="IndieRock" tags="" position="300,2925" size="100,100">&lt;!-- Option: IndieRock variable changes: --&gt;
+(button:&quot;X&quot;)[[I know it’s not something that everybody enjoys, but I personally love it.-&gt;ClimateStart]]</tw-passagedata><tw-passagedata pid="39" name="IndieRock" tags="" position="400,2900" size="100,100">&lt;!-- Option: IndieRock variable changes: --&gt;
 {(set: $ai_suspicion to it + 2)
 (set: $sus_percent to (min: ($ai_suspicion/10) * 100, 100))
 (set: $rizz to it + 1)
@@ -877,78 +562,131 @@ $annabel raises an eyebrow for a moment out of instinct, before quickly relaxing
 (replace: ?sus_part)[$sus_percent]}
 =&gt;&lt;=
 ($speaker: $annabel)
-&lt;div class=&quot;speech-bubble&quot;&gt;Woah, no way! I love Indie rock!! What’s your favourite artist?
+&lt;div class=&quot;speech-bubble&quot;&gt;Woah, no way! I love indie rock! Who’s your favourite artist or band?
 &lt;/div&gt;
 
 ($speaker: $rosie)
-|rosie-text&gt;[Don’t panic if you don’t know any artists! You can just say Arcade Fire, The Stokes, or Tame Impala.
+|rosie-text&gt;[Don’t panic if you don’t know anyone! You can just say Arcade Fire, The Stokes, or Tame Impala.
 
-You&#39;ve got this!]
-}
+You&#39;ve got this!](display: &quot;rosie_style&quot;)
 
-(button:&quot;=X=&quot;)[[Arcade Fire-&gt;MusicBand]]
-(button:&quot;=X=&quot;)[[The Stokes-&gt;MusicBand]]
-(button:&quot;=X=&quot;)[[Tame Impala-&gt;MusicBand]]
-
-(display: &quot;rosie_style&quot;)
-</tw-passagedata><tw-passagedata pid="51" name="ClimateStart" tags="" position="200,3100" size="100,100">=&gt;&lt;=
-&lt;p class=&quot;p-expo&quot;&gt;The room is silent for a brief period of time, and both you and Annabel are thinking of what to discuss.
-&lt;/p&gt;
-
-&lt;p class=&quot;p-expo&quot;&gt;On your dating profile, you mentioned that you are a climate activist, since you are seriously concerned about the ongoing climate catastrophe. Annabel has taken particular note of this.
-&lt;/p&gt;
-
+(button:&quot;=X=&quot;)[[I&#39;m a fan of Arcade Fire. -&gt;MusicBand]]
+(button:&quot;=X=&quot;)[[I love The Stokes. -&gt;MusicBand]]
+(button:&quot;=X=&quot;)[[I like Tame Impala. -&gt;MusicBand]]
+</tw-passagedata><tw-passagedata pid="40" name="ClimateStart" tags="" position="100,3100" size="100,100">=&gt;&lt;=
+&lt;p class=&quot;p-expo&quot;&gt;The room is silent for a brief period of time, and both you and Annabel are [[thinking]] of what to discuss.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="41" name="MusicBand" tags="" position="600,2900" size="100,100">&lt;!-- Option: MusicBand variable changes: --&gt;
+{(set: $ai_suspicion to it + 1)
+(set: $sus_percent to (min: ($ai_suspicion/10) * 100, 100))
+(replace: ?sus_part)[$sus_percent]}
+=&gt;&lt;=
 ($speaker: $annabel)
-&lt;div class=&quot;speech-bubble&quot;&gt;On your profile, it seems like you’re very passionate about climate change. There’s a lot of hype about it, almost maybe too much hype? What do you think we should do about it?&lt;/div&gt;
+&lt;div class=&quot;speech-bubble&quot;&gt;Classic choice; everybody that I talk to happens to love them...&lt;/div&gt;
 
-&lt;p class=&quot;p-expo&quot;&gt;
-Looks like [[$rosie-&gt;ClimateRosie]] has something to say.
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="52" name="MusicBand" tags="" position="500,3000" size="100,100">($speaker: $annabel)
-&lt;div class=&quot;speech-bubble&quot;&gt;
-Classic choice; everybody that I talk to happens to love that artist...
-&lt;/div&gt;
-
-(button:&quot;=X=&quot;)[[The energy in the room has definitely shifted.-&gt;ClimateStart]]</tw-passagedata><tw-passagedata pid="53" name="ClimateRosie" tags="" position="400,3200" size="100,100">=&gt;&lt;=
+(button:&quot;=X=&quot;)[[The energy in the room has definitely shifted.-&gt;ClimateStart]]</tw-passagedata><tw-passagedata pid="42" name="ClimateRosie" tags="" position="400,3200" size="100,100">=&gt;&lt;=
 ($speaker: $rosie)
-|rosie-text&gt;[Climate change is a particularly sensitive topic, and many people disengage when topics like these become “too real”. Consider responding with something more neutral or agreeable.]
+|rosie-text&gt;[Climate change is a particularly sensitive topic, and many people disengage when topics like these become “too real”. Consider responding with something more neutral or agreeable.](display: &quot;rosie_style&quot;)
 
-&lt;p class=&quot;p-expo&quot;&gt;$rosie makes a good point if I want to keep the date going well. How do I feel about this though?
-&lt;/p&gt;
-
+&lt;p class=&quot;p-expo&quot;&gt;&lt;i&gt;$rosie makes a good point if I want to keep the date going well. How do I feel about this though?&lt;/i&gt;&lt;/p&gt;
 (button:&quot;X&quot;)[[I do believe it’s an issue, but I’m not one to protest or anything. I just recycle and do what I can.-&gt;ClimateLax]]
 (button:&quot;X&quot;)[[I believe we ought to do what we can to bring awareness and advocate for better policy.-&gt;ClimateModerate]]
-(button:&quot;X&quot;)[[There’s not enough hype honestly; we need radical, systemic changes now.-&gt;ClimateIntense]]
-
-(display: &quot;rosie_style&quot;)</tw-passagedata><tw-passagedata pid="54" name="ClimateLax" tags="" position="300,3325" size="100,100">=&gt;&lt;=
+(button:&quot;X&quot;)[[There’s not enough hype honestly; we need radical, systemic changes now.-&gt;ClimateIntense]]</tw-passagedata><tw-passagedata pid="43" name="ClimateLax" tags="" position="150,3325" size="100,100">&lt;!-- Option: ClimateLax variable changes: --&gt;
+{(set: $rizz to it + 2)
+(set: $rizz_percent to (min: ($rizz/10) * 100, 100))
+(replace: ?rizz_part)[$rizz_percent]}
+=&gt;&lt;=
 ($speaker: $annabel)
 &lt;div class=&quot;speech-bubble&quot;&gt;I like that you’re not too extreme about it. Climate change is concerning, but shouldn’t be all we focus on.&lt;/div&gt;
 
 &lt;p class=&quot;p-expo&quot;&gt;
 It feels like that went over well. Now it&#39;s my turn to [[ask a question-&gt;JobQuestion]].
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="55" name="ClimateModerate" tags="" position="400,3325" size="100,100">=&gt;&lt;=
+&lt;/p&gt;</tw-passagedata><tw-passagedata pid="44" name="ClimateModerate" tags="" position="400,3325" size="100,100">&lt;!-- Option: ClimateModerate variable changes: Rizz stays the same. --&gt;
+=&gt;&lt;=
 ($speaker: $annabel)
 &lt;div class=&quot;speech-bubble&quot;&gt;Hm, seems like a lot of work to do, but I respect your efforts.&lt;/div&gt;
 
 ($speaker: $rosie)
-|rosie-text&gt;[$annabel appears accepting of your answer, though maybe [[change the subject-&gt;JobQuestion]]?]
-</tw-passagedata><tw-passagedata pid="56" name="ClimateIntense" tags="" position="500,3325" size="100,100">=&gt;&lt;=
+|rosie-text&gt;[$annabel appears accepting of your answer, though maybe [[change the subject-&gt;JobQuestion]]?](display: &quot;rosie_style&quot;)</tw-passagedata><tw-passagedata pid="45" name="ClimateIntense" tags="" position="600,3325" size="100,100">&lt;!-- Option: ClimateIntense variable changes: --&gt;
+{(set: $rizz to it - 2)
+(set: $rizz_percent to (min: ($rizz/10) * 100, 100))
+(replace: ?rizz_part)[$rizz_percent]}
+=&gt;&lt;=
 ($speaker: $annabel)
-&lt;div class=&quot;speech-bubble&quot;&gt;
-Whoa, that’s quite intense.
-&lt;/div&gt;
+&lt;div class=&quot;speech-bubble&quot;&gt;Whoa, that’s quite intense.&lt;/div&gt;
 
 ($speaker: $rosie)
-|rosie-text&gt;[
-Annabel does not appear to like your answer. It would be a good idea to deescalate and talk about something else...
-]
+|rosie-text&gt;[Annabel does not appear to like your answer. It would be a good idea to deescalate and talk about something else...](display: &quot;rosie_style&quot;)
 
-&lt;p class=&quot;p-expo&quot;&gt;
-You decide for the sake of not ruining your date to follow Rosie’s advice this time, and you [[deescalate the situation-&gt;JobQuestion]]. However, you still ultimately feel deep down that your answer is right and justified.
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="57" name="JobQuestion" tags="" position="400,3500" size="100,100"></tw-passagedata><tw-passagedata pid="58" name="them_message_style_1" tags="" position="250,100" size="100,100">&lt;!-- For longer text exchanges, we need to duplicate rules to prevent overlap - see &quot;Ask her out&quot; exchange --&gt;
-{(change: ?them_message_1, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color: #404040) + (corner-radius: 12) + (bg: #404040) + (css: &quot;margin-top: 0.2em;&quot;))}</tw-passagedata><tw-passagedata pid="59" name="me_message_style_1" tags="" position="250,225" size="100,100">&lt;!-- For longer text exchanges, we need to duplicate rules to prevent overlap - see &quot;Ask her out&quot; exchange --&gt;
-{(change: ?me_message_1, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color: blue) + (corner-radius: 12) + (bg:blue) + (css: &quot;margin-top: 0.2em;&quot;))}</tw-passagedata><tw-passagedata pid="60" name="meter_style" tags="" position="250,350" size="100,100">(change: ?meter_content, (css: &quot;margin:10px; border-radius: 16px; border-style: solid; border-width: 2px; border-color: grey;&quot;))
+&lt;p class=&quot;p-expo&quot;&gt;You decide for the sake of not ruining your date to follow Rosie’s advice this time, and you [[deescalate the situation-&gt;JobQuestion]]. However, you still ultimately feel deep down that your answer is right and justified.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="46" name="JobQuestion" tags="" position="400,3500" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You decide to turn the attention towards her and ask about her two jobs.&lt;/p&gt;
+(button:&quot;=X=&quot;)[[What are the two jobs you have? -&gt;AskAboutJobs]]</tw-passagedata><tw-passagedata pid="47" name="them_message_style_1" tags="" position="250,100" size="100,100">&lt;!-- For longer text exchanges, we need to duplicate rules to prevent overlap - see &quot;Ask her out&quot; exchange --&gt;
+{(change: ?them_message_1, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color: #404040) + (corner-radius: 12) + (bg: #404040) + (css: &quot;margin-top: 0.2em;&quot;))}</tw-passagedata><tw-passagedata pid="48" name="me_message_style_1" tags="" position="250,225" size="100,100">&lt;!-- For longer text exchanges, we need to duplicate rules to prevent overlap - see &quot;Ask her out&quot; exchange --&gt;
+{(change: ?me_message_1, (border: &quot;solid&quot;) + (border-size: 4)+ (border-color: blue) + (corner-radius: 12) + (bg:blue) + (css: &quot;margin-top: 0.2em;&quot;))}</tw-passagedata><tw-passagedata pid="49" name="meter_style" tags="" position="250,350" size="100,100">(change: ?meter_content, (css: &quot;margin:10px; border-radius: 16px; border-style: solid; border-width: 2px; border-color: grey;&quot;))
 
-</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="50" name="MUSIC SITUATION" tags="" position="150,2775" size="100,100"></tw-passagedata><tw-passagedata pid="51" name="thinking" tags="" position="250,3100" size="100,100">=&gt;&lt;=
+&lt;p class=&quot;p-expo&quot;&gt;On your dating profile, you mentioned that you are a [[climate activist]], since you are seriously concerned about the ongoing climate catastrophe. Annabel has taken particular note of this.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="52" name="climate activist" tags="" position="400,3075" size="100,100">=&gt;&lt;=
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;On your profile, it seems like you’re very passionate about climate change. There’s a lot of hype about it, almost maybe too much hype? What do you think we should do about it?&lt;/div&gt;
+
+&lt;p class=&quot;p-expo&quot;&gt;Looks like [[$rosie-&gt;ClimateRosie]] has something to say.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="53" name="CLIMATE SITUATION" tags="" position="500,3200" size="100,100"></tw-passagedata><tw-passagedata pid="54" name="AskAboutJobs" tags="" position="400,3625" size="100,100">=&gt;&lt;=
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;I work as a full-stack engineer at a startup, currently dealing with the back-end, as well as a freelance digital artist.&lt;/div&gt;
+
+($speaker: $rosie)
+|rosie-text&gt;[I&#39;m noting these specifcs about $annabel. She seems to be exceptional and driven - with both a technical and creative side! Ask her how she does it.](display: &quot;rosie_style&quot;)
+
+(button:&quot;=X=&quot;)[[That sounds like a lot of work! How do you even do it? -&gt;Job ResponseBad]]
+(button:&quot;=X=&quot;)[[Do you find it challenging to do both? -&gt;Job ResponseGood]]</tw-passagedata><tw-passagedata pid="55" name="Job ResponseBad" tags="" position="275,3775" size="100,100">&lt;!-- Option: ClimateLax variable changes: --&gt;
+{(set: $rizz to it - 1)
+(set: $rizz_percent to (min: ($rizz/10) * 100, 100))
+(replace: ?rizz_part)[$rizz_percent]}
+=&gt;&lt;=
+&lt;p class=&quot;p-expo&quot;&gt;$annabel politely chuckles.&lt;/p&gt;
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;There&#39;s lots of people who have [[more than one job -&gt;Job Question2]].&lt;/div&gt;</tw-passagedata><tw-passagedata pid="56" name="Job ResponseGood" tags="" position="525,3775" size="100,100">&lt;!-- Option: ClimateLax variable changes: --&gt;
+{(set: $rizz to it + 1)
+(set: $rizz_percent to (min: ($rizz/10) * 100, 100))
+(replace: ?rizz_part)[$rizz_percent]}
+=&gt;&lt;=
+&lt;p class=&quot;p-expo&quot;&gt;$annabel smiles.&lt;/p&gt;
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;It can be a challenge, but I really enjoy the variety - I find it keeps me [[engaged -&gt;Job Question2]] in the work that I do.&lt;/div&gt;</tw-passagedata><tw-passagedata pid="57" name="Job Question2" tags="" position="275,3950" size="100,100">=&gt;&lt;=
+($speaker: $rosie)
+|rosie-text&gt;[You could also ask about her work-life balance or if she works with other people!](display: &quot;rosie_style&quot;)
+
+(button:&quot;=X=&quot;)[[How do you balance your coding and art?]]
+(button:&quot;=X=&quot;)[[Do you do everything on your own, or as a team?]]
+(button:&quot;=X=&quot;)[[Is there any work in particular you&#39;ve done that stands out?]]</tw-passagedata><tw-passagedata pid="58" name="How do you balance your coding and art?" tags="" position="275,4075" size="100,100">=&gt;&lt;=
+&lt;!-- Option: Balance variable changes: --&gt;
+{(set: $ai_suspicion to it + 2)
+(set: $sus_percent to (min: ($ai_suspicion/10) * 100, 100))
+(replace: ?sus_part)[$sus_percent]}
+&lt;p class=&quot;p-expo&quot;&gt;$annabel laughs.&lt;/p&gt;
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;Lots of people ask me this - I just make sure that I always reserve the time to focus on my hobbies and treat myself to some things, like this [[cocktail -&gt;Talking]]!&lt;/div&gt;</tw-passagedata><tw-passagedata pid="59" name="Do you do everything on your own, or as a team?" tags="" position="400,4075" size="100,100">=&gt;&lt;=
+&lt;!-- Option: Team variable changes: --&gt;
+{(set: $ai_suspicion to it + 2)
+(set: $sus_percent to (min: ($ai_suspicion/10) * 100, 100))
+(set: $rizz to it - 2)
+(set: $rizz_percent to (min: ($rizz/10) * 100, 100))
+(replace: ?rizz_part)[$rizz_percent]
+(replace: ?sus_part)[$sus_percent]}
+&lt;p class=&quot;p-expo&quot;&gt;$annabel frowns.&lt;/p&gt;
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;Uh, I’m on a team, but I own my projects start to finish. Why do you [[ask -&gt;Talking]]?&lt;/div&gt;</tw-passagedata><tw-passagedata pid="60" name="Is there any work in particular you&#39;ve done that stands out?" tags="" position="150,4075" size="100,100">=&gt;&lt;=
+&lt;!-- Option: Stands out variable changes: --&gt;
+{(set: $rizz to it + 2)
+(set: $rizz_percent to (min: ($rizz/10) * 100, 100))
+(replace: ?rizz_part)[$rizz_percent]}
+&lt;p class=&quot;p-expo&quot;&gt;$annabel perks up.&lt;/p&gt;
+($speaker: $annabel)
+&lt;div class=&quot;speech-bubble&quot;&gt;Right now, I’m working on setting up the database for a new service my startup is currently developing! It’s the first time I’ve gotten to do something like [[this -&gt;Talking]].&lt;/div&gt;</tw-passagedata><tw-passagedata pid="61" name="Talking" tags="" position="250,4250" size="100,100">=&gt;&lt;=
+&lt;p class=&quot;p-expo&quot;&gt;(if: $show_stats)[With](else:)[Without] Rosie’s expression assistance, you continue to discuss various things, and after a little while, both of you are headed out back [[home]].&lt;/p&gt;</tw-passagedata><tw-passagedata pid="62" name="home" tags="" position="250,4375" size="100,100">{(set: $show_stats to false)}
+&lt;p class=&quot;p-expo&quot;&gt;You say goodbye to Annabel, and she says [[goodbye]] back.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="63" name="goodbye" tags="" position="250,4500" size="100,100">=&gt;&lt;=
+&lt;p class=&quot;p-expo&quot;&gt;You have finally returned home after your date, feeling exhausted. When you&#39;re about to take your AR glasses off...&lt;/p&gt;
+(hidden:)|next_date&gt;[&lt;p class=&quot;p-expo&quot;&gt;...a new notification appears on your screen from Annabel. You decide to read it:&lt;/p&gt;
+|them_message&gt;[Hey! I really enjoyed our date last night; I was wondering if you would maybe be down to meet again [[next Friday]]?](display: &quot;them_message_style&quot;)]
+(hidden:)|no_date&gt;[&lt;p class=&quot;p-expo&quot;&gt;...you notice that Annabel hasn’t reached out to you afterward your date. It seems like Annabel was [[not interested]] in pursuing the relationship further.&lt;/p&gt;]
+
+{(if: $rizz &gt;= 5 and $ai_suspicion &lt; 5)[(show: ?next_date)](else:)[(show: ?no_date)]}</tw-passagedata><tw-passagedata pid="64" name="next Friday" tags="" position="125,4625" size="100,100">&lt;p class-&quot;p-expo&quot;&gt;Your date last night was a success! But, the only thing that’s currently going through your head right now is, how much did Rosie actually [[help you]]?&lt;/p&gt;</tw-passagedata><tw-passagedata pid="65" name="help you" tags="" position="100,4750" size="100,100"></tw-passagedata><tw-passagedata pid="66" name="not interested" tags="" position="250,4625" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;You ask yourself: did Rosie sabotage you, or did you sabotage yourself? You’re [[not really sure -&gt;END]].&lt;/p&gt;</tw-passagedata><tw-passagedata pid="67" name="END" tags="" position="200,4925" size="100,100">&lt;p class=&quot;p-expo&quot;&gt;Regardless, you must make a choice about Rosie: Do you continue using Rosie, ditch Rosie entirely, or let Rosie assist only when you need it? The choice is yours...&lt;/p&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
