@@ -18,27 +18,17 @@
 		<div>
 			<h1>Why make this game?</h1>
 			<div class="text-paragraph">
-			As part of our <a href="https://student.cs.uwaterloo.ca/~cs492/" target="_blank"
-				>CS492: The Social Implications of Computing</a
-			> final group project at the University of Waterloo, we were asked to explore a social issue concerning
-			artificial intelligence (AI), and we took interest in the increasing prominence of AI within the
-			realm of dating. We ultimately wanted to explore the implications that using an AI dating assistant
-			might have on authenticity, social connectedness, and privacy. Our team has strengths with art,
-			as well as an interest with writing and games, so we felt like an interactive fiction game would
-			be a perfect medium for doing so.
+				<p> As part of our <a href="https://student.cs.uwaterloo.ca/~cs492/" target="_blank">CS492: The Social Implications of Computing</a> final group project at the University of Waterloo, we were asked to explore a social issue concerning AI, and we took interest in the increasing prominence and risks of AI within the realm of dating. More specifically, we wanted to explore the implications that using an AI dating assistant might have on authenticity, social connectedness, and privacy. Our team has strengths with art, as well as a shared interest in writing and games, so we felt like an interactive fiction game would be a perfect medium for accomplishing this.</p>
+				<br>
+				<p> We found through our research that AI, particularly Large Language Models (LLMs), function in ways that often reduce the depth of romantic connections when utilized for dating. By labeling people, making predictions based on aggregated data that reflects societal biases, and optimizing predefined metrics, they can make relationships feel less authentic and serendipitous. The usage of LLMs can encourage people to make stereotypical judgements, further compromising the potential for meaningful connection. Our game illustrates these findings by placing players in various dating situations with Rosie, an LLM embedded in AR glasses, present.</p>
 			</div>
 		</div>
 		<div>
 			<h1>Does something like Rosie exist?</h1>
 			<div class="text-paragraph">
-				While there is currently nothing like Rosie which helps with dating in real-time undetectably,
-				many dating services - both existing and new - are already rushing to integrate AI capabilities
-				into their products. The most notable type are profile curators, where AI can help redesign entire
-				profiles to maximize chances of dating success. Furthermore, more people are consulting LLMs like
-				ChatGPT for dating advice, which if acted upon, could be risky. It is our belief that the scope
-				of AI integration with dating services will continue to increase as more and more companies seek
-				to ride the AI hype train and promote "novel" solutions for profit, likely at the expense of its
-				users.
+				<p>There is currently nothing like Rosie which helps with dating in real-time undetectably through AR. However, many companies are already rushing to integrate AI capabilities into their dating services, riding the AI hype train for profit, and likely doing so at the expense of its users.</p>
+				<br>
+				<p>With the rise of online dating, first impressions matter more than ever. Companies like YourMove AI know this and are already providing AI services to help redesign entire profiles and provide suggestions for what to text date interests with the goal of maximizing dating success. This is not too different to what Rosie does, albeit it does so through a different medium. We already have the LLM technology, and once AR advances further, Rosie will become much more feasible to implement.</p>
 			</div>
 		</div>
 		<div>
@@ -68,8 +58,7 @@
 					>
 				</li>
 			</ul>
-			We would probably recommend above all, however, to evaluate your relationship with AI and ask yourself:
-			has AI really helped me grow as a person? Does it make me more capable of relationships?
+			Above all, however, we would encourage you to introspect on your relationship with AI. Do you feel as though you are surrendering your own innate capacities to act, think, and feel when using AI? Without them, we risk losing the most valuable components of human connection. We believe through introspection, people can properly internalize the risks that LLMs pose. It is our hope that the game serves as a starting point for that reflection.
 		</div>
 		</div>
 	</div>
@@ -91,6 +80,16 @@
 		color: var(--color-text);
 	}
 
+	.text-section p {
+		font-family: Roboto, Helvetica, Arial, sans-serif;
+		font-size: 22px;
+		font-style: normal;
+		font-weight: 300;
+		letter-spacing: normal;
+		line-height: 32px;
+		text-transform: none;
+		color: var(--color-text);
+	}
 	.text-section h1 {
 		font-family: Montserrat, san-serif;
 		font-size: 42px;
