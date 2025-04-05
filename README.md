@@ -21,5 +21,12 @@ This project uses [yarn](https://yarnpkg.com/) as a package manager, and [Svelte
 ### Twine Story Development
 1. If you haven't already, install [Twine](https://twinery.org/).
 2. Clone this repository locally, but do not put it in the same folder as the one that was automatically created by Twine to hold all Twine stories. 
-3. All files relating to the story are located in the `rosie-if` folder, in this repository. The `CS492-Rosie-IF.html` file is the compiled Twine story. To open this story in Twine, head to Library → Import → then choose the aforementioned HTML file.
+3. All files relating to the story are located in the `static` folder, in this repository. The `CS492-Rosie-IF.html` file is the compiled Twine story. To open this story in Twine, head to Library → Import → then choose the aforementioned HTML file.
 4. This will create a copy of the story in the Twine application folder, and any edits you make to the story will impact this copy. This means that to sync to git / GitHub, you need to copy back and replace the file in the repository folder. You can do this when in the story: Build → Publish to File → save to repository folder.
+
+### Credits
+* [ASCII rose](https://www.asciiart.eu/plants/roses)
+* [rose icon](https://thenounproject.com/icon/rose-7667370/)
+* ["at home" background music](https://freemusicarchive.org/music/Chad_Crouch/field-report-vol-viii-elk-rock-island-instrumental/the-channel-instrumental/)
+* ["at bar" background music](https://freesound.org/people/Talitha5/sounds/509950/)
+* Code snippets such as the "blinking recording circle" have in-game citations.
