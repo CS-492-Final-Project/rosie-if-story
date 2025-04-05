@@ -378,7 +378,7 @@ $$$$$$$$$$$$ oo$&quot;$$$$$$&quot;&quot;
    &lt;div class=&quot;titleText&quot;&gt;
     	&lt;img src=&quot;./rosie-assets/rosie-icon.png&quot; height=&quot;100px&quot;/&gt;
 		&lt;p&gt;It&#39;s a cold November morning. Your waking routine is as unremarkable as the grey, cloudy skies: make bed, brush teeth, polish [[AR glasses-&gt;AR glasses]] with a cleaning cloth.&lt;/p&gt;
-		&lt;p&gt;This game is a project from UWaterloo&#39;s CS492 - The Social Implications of Computing class. For more information and credits, check out the &lt;a href=&quot;https://github.com/CS-492-Final-Project/rosie-if-story&quot;&gt;game&#39;s repository&lt;/a&gt;.&lt;/p&gt;
+		&lt;p&gt;This game is a project from UWaterloo&#39;s CS492 - The Social Implications of Computing class. For more information and credits, check out the &lt;a href=&quot;https://github.com/CS-492-Final-Project/rosie-if-story&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;game&#39;s repository&lt;/a&gt;.&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 {
@@ -406,7 +406,7 @@ $$$$$$$$$$$$ oo$&quot;$$$$$$&quot;&quot;
 (set: $rosie to &quot;Rosie&quot;)
 (set: $annabel to &quot;Annabel&quot;)
 &lt;!-- stat bar variables --&gt;
-(set: $ai_suspicion to 4)
+(set: $ai_suspicion to 3)
 (set: $sus_percent to (min: ($ai_suspicion/10) * 100, 100))
 (set: $rizz to 4)
 (set: $rizz_percent to (min: ($rizz/10) * 100, 100))
@@ -753,7 +753,24 @@ You&#39;ve got this!](display: &quot;rosie_style&quot;)
 &lt;p class=&quot;p-expo&quot;&gt;You ask yourself: did Rosie sabotage you, or did you sabotage yourself? You’re [[not really sure-&gt;END]].&lt;/p&gt;</tw-passagedata><tw-passagedata pid="66" name="END" tags="" position="250,4775" size="100,100">=&gt;&lt;=
 &lt;p class=&quot;p-expo&quot;&gt;Regardless, you must make a choice about Rosie: Do you continue using Rosie, ditch Rosie entirely, or let Rosie assist only when you need it? The choice is yours...&lt;/p&gt;
 &lt;p class=&quot;p-expo&quot;&gt;|end_statement&gt;[END](mouseover-replace: ?end_statement)[01000101 01001110 01000100]&lt;/p&gt;
-&lt;p class=&quot;p-expo&quot;&gt;[[Start over? -&gt;Title]]&lt;/p&gt;</tw-passagedata><tw-passagedata pid="67" name="hal.tracks" tags="" position="700,200" size="100,100">home: ./rosie-assets/Chad_Crouch_The_Channel_Instrumental.mp3
+&lt;p class=&quot;p-expo&quot;&gt;[[Start over? -&gt;Title]]&lt;/p&gt;
+{
+&lt;!-- speaker variables: --&gt;
+(set:  $speaker to (macro: str-type _name, [(output:)+(text-color:black)+(text-style: &quot;italic&quot;)[_name:]]))
+(set: $rosie to &quot;Rosie&quot;)
+(set: $annabel to &quot;Annabel&quot;)
+&lt;!-- stat bar variables --&gt;
+(set: $ai_suspicion to 3)
+(set: $sus_percent to (min: ($ai_suspicion/10) * 100, 100))
+(set: $rizz to 4)
+(set: $rizz_percent to (min: ($rizz/10) * 100, 100))
+(set: $show_stats to false)
+(set: $did_prescreen to false)
+(set: $help to 1)
+&lt;!-- OLD og variables --&gt;
+(set: $ai_accepted to 0)
+(set: $dateName to &quot;DATE-NAME&quot;)
+}</tw-passagedata><tw-passagedata pid="67" name="hal.tracks" tags="" position="700,200" size="100,100">home: ./rosie-assets/Chad_Crouch_The_Channel_Instrumental.mp3
 bar: ./rosie-assets/509950__talitha5__bustling-cafe-ambience.m4a
 text: ./rosie-assets/iphone_ding.mp3
 rosie: ./rosie-assets/notification.mp3</tw-passagedata></tw-storydata>
